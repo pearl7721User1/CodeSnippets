@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BE34EF8E202855DC001385AC /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE34EF8D202855DC001385AC /* InitialViewController.swift */; };
+		BEC503D2202D6E62009ED477 /* MyCollectionSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC503D0202D6E62009ED477 /* MyCollectionSectionHeaderView.swift */; };
 		CC144FDC1D9F8C95004D8E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC144FDB1D9F8C95004D8E2B /* AppDelegate.swift */; };
 		CC144FDE1D9F8C95004D8E2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC144FDD1D9F8C95004D8E2B /* ViewController.swift */; };
 		CC144FE11D9F8C95004D8E2B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CC144FDF1D9F8C95004D8E2B /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 
 /* Begin PBXFileReference section */
 		BE34EF8D202855DC001385AC /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		BEC503D0202D6E62009ED477 /* MyCollectionSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionSectionHeaderView.swift; sourceTree = "<group>"; };
 		CC144FD81D9F8C95004D8E2B /* StickyHeaders.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StickyHeaders.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC144FDB1D9F8C95004D8E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CC144FDD1D9F8C95004D8E2B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 				BE34EF8D202855DC001385AC /* InitialViewController.swift */,
 				CC144FDD1D9F8C95004D8E2B /* ViewController.swift */,
 				CC144FED1D9F8D39004D8E2B /* StickyHeadersCollectionViewFlowLayout.swift */,
+				BEC503D0202D6E62009ED477 /* MyCollectionSectionHeaderView.swift */,
 			);
 			path = "View Controller";
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 			files = (
 				CC144FF41D9F92C4004D8E2B /* UIColor.swift in Sources */,
 				CC144FDE1D9F8C95004D8E2B /* ViewController.swift in Sources */,
+				BEC503D2202D6E62009ED477 /* MyCollectionSectionHeaderView.swift in Sources */,
 				BE34EF8E202855DC001385AC /* InitialViewController.swift in Sources */,
 				CC144FDC1D9F8C95004D8E2B /* AppDelegate.swift in Sources */,
 				CC144FEE1D9F8D39004D8E2B /* StickyHeadersCollectionViewFlowLayout.swift in Sources */,

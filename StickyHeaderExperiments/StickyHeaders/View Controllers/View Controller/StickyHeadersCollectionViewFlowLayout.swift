@@ -8,17 +8,11 @@
 
 import UIKit
 
-protocol SupplementaryViewColorChangeProtocol {
-    func shouldFlagSupplementaryView(of section:Int)
-    func shouldUnFlagSupplementaryView(of section:Int)
-}
 
 class StickyHeadersCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
-    // MARK: - Collection View Flow Layout Methods
-    var supplementaryViewDelegate: SupplementaryViewColorChangeProtocol?
+    var topOffset: CGFloat = 0.0
     
-
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
@@ -63,7 +57,7 @@ class StickyHeadersCollectionViewFlowLayout: UICollectionViewFlowLayout {
         guard let boundaries = boundaries(forSection: indexPath.section) else { return layoutAttributes }
         guard let collectionView = collectionView else { return layoutAttributes }
         
-
+        
         // Helpers
         let contentOffsetY = collectionView.contentOffset.y
         var frameForSupplementaryView = layoutAttributes.frame
@@ -71,44 +65,50 @@ class StickyHeadersCollectionViewFlowLayout: UICollectionViewFlowLayout {
         let minimum = boundaries.minimum - frameForSupplementaryView.height
         let maximum = boundaries.maximum - frameForSupplementaryView.height
         
+        print("*************************")
+        
         print("contentOffsetY:\(contentOffsetY), minimum: \(minimum), maximum: \(maximum)")
         
-
         
-        
-        let newContentOffsetY = contentOffsetY + 50
+        let newContentOffsetY = contentOffsetY + topOffset
         
         
         if newContentOffsetY < minimum {
             frameForSupplementaryView.origin.y = minimum
-            supplementaryViewDelegate?.shouldUnFlagSupplementaryView(of: indexPath.section)
-//            print("min")
+            print("min")
         } else if newContentOffsetY > maximum {
             frameForSupplementaryView.origin.y = maximum
-            supplementaryViewDelegate?.shouldFlagSupplementaryView(of: indexPath.section)
-//            print("max")
+            print("max")
         } else {
-            frameForSupplementaryView.origin.y = contentOffsetY + 50
+            frameForSupplementaryView.origin.y = newContentOffsetY
             
+            print("normal")
             
             if elementKind == UICollectionElementKindSectionHeader {
-               // print("indexPathSection:\(indexPath.section),Row:\(indexPath.row)")
-                supplementaryViewDelegate?.shouldFlagSupplementaryView(of: indexPath.section)
+                // print("indexPathSection:\(indexPath.section),Row:\(indexPath.row)")
             } else {
-               // print("not")
+                // print("not")
             }
             
             
         }
         
+        
+        
+        print("layoutAttributesY:\(layoutAttributes.frame.origin.y), height: \(layoutAttributes.frame.size.height)")
+        
         layoutAttributes.frame = frameForSupplementaryView
-
+        
+        print("New layoutAttributesY:\(layoutAttributes.frame.origin.y), height: \(layoutAttributes.frame.size.height)")
+        
+        print("*************************")
+        
         return layoutAttributes
     }
 
     // MARK: - Helper Methods
 
-    func boundaries(forSection section: Int) -> (minimum: CGFloat, maximum: CGFloat)? {
+    private func boundaries(forSection section: Int) -> (minimum: CGFloat, maximum: CGFloat)? {
         // Helpers
         var result = (minimum: CGFloat(0.0), maximum: CGFloat(0.0))
 
@@ -131,15 +131,21 @@ class StickyHeadersCollectionViewFlowLayout: UICollectionViewFlowLayout {
             result.maximum = lastItem.frame.maxY
 
             // Take Header Size Into Account
-            result.minimum -= headerReferenceSize.height
-            result.maximum -= headerReferenceSize.height
+//            result.minimum -= headerReferenceSize.height
+//            result.maximum -= headerReferenceSize.height
+            
+            print("headerReferenceSizeHeight: \(headerReferenceSize.height)")
+            
 
             // Take Section Inset Into Account
             result.minimum -= sectionInset.top
             result.maximum += (sectionInset.top + sectionInset.bottom)
+            
+            print("sectionInset top: \(sectionInset.top)")
         }
         
         return result
     }
 
+    
 }
