@@ -1,9 +1,9 @@
 //
 //  AppDelegate.swift
-//  StickyHeaders
+//  CodeSnippetCollectionViews
 //
-//  Created by Bart Jacobs on 01/10/16.
-//  Copyright © 2016 Cocoacasts. All rights reserved.
+//  Created by GIWON1 on 2018. 3. 5..
+//  Copyright © 2018년 GIWON1. All rights reserved.
 //
 
 import UIKit

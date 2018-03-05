@@ -8,11 +8,11 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class StickyHeadersViewController: UIViewController {
 
     // MARK: - Properties
 
-    fileprivate let CellIdentifier = "Cell"
+    fileprivate let CellIdentifier = "StickyHeaderCell"
     fileprivate let HeaderIdentifier = "Header"
     @IBOutlet weak var collectionViewTopOffsetConstraint: NSLayoutConstraint!
     
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
 
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension StickyHeadersViewController: UICollectionViewDataSource {
 
     // MARK: - Collection View Data Source Methods
 
@@ -103,19 +103,26 @@ extension ViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         // Dequeue Reusable Supplementary View
-        if let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
-                                                                         withReuseIdentifier: "Header",
-                                                                         for: indexPath) as? MyCollectionSectionHeaderView {
-            headerView.label.text = "TEXT"
+        // load collection header view that reads time, date for each collection
+        switch kind {
+            
+        case UICollectionElementKindSectionHeader:
+            
+            let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
+                                                                             withReuseIdentifier: "Header",
+                                                                             for: indexPath)
+            if let label = headerView.viewWithTag(10) as? UILabel {
+                label.text = "TEXT"
+            }
             
             return headerView
             
-        } else {
-            fatalError()
+        default:
+            
+            fatalError("Unexpected element kind")
         }
     }
     
-
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         // switch on/off constraints
         
@@ -137,7 +144,7 @@ extension ViewController: UICollectionViewDataSource {
 }
 
 
-extension ViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension StickyHeadersViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     // MARK: - Collection View Delegate Flow Layout Methods
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
