@@ -17,6 +17,9 @@
 		BEC0905D204D300C0022E5AD /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0905C204D300C0022E5AD /* UIColor.swift */; };
 		BEC09060204D39570022E5AD /* ItemAnimationTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0905E204D39570022E5AD /* ItemAnimationTestViewController.swift */; };
 		BEC09061204D39570022E5AD /* ItemAnimaionCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC0905F204D39570022E5AD /* ItemAnimaionCollectionView.swift */; };
+		BEC090642050BFAF0022E5AD /* Layout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC090622050BFAE0022E5AD /* Layout2.swift */; };
+		BEC090652050BFAF0022E5AD /* Layout1.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC090632050BFAE0022E5AD /* Layout1.swift */; };
+		BEC0906B2050BFB50022E5AD /* FlowLayoutChangeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEC090682050BFB50022E5AD /* FlowLayoutChangeTestViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		BEC0905C204D300C0022E5AD /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		BEC0905E204D39570022E5AD /* ItemAnimationTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAnimationTestViewController.swift; sourceTree = "<group>"; };
 		BEC0905F204D39570022E5AD /* ItemAnimaionCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemAnimaionCollectionView.swift; sourceTree = "<group>"; };
+		BEC090622050BFAE0022E5AD /* Layout2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout2.swift; sourceTree = "<group>"; };
+		BEC090632050BFAE0022E5AD /* Layout1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout1.swift; sourceTree = "<group>"; };
+		BEC090682050BFB50022E5AD /* FlowLayoutChangeTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowLayoutChangeTestViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +96,9 @@
 		BEC09056204D29F50022E5AD /* FlowLayoutChange */ = {
 			isa = PBXGroup;
 			children = (
+				BEC090682050BFB50022E5AD /* FlowLayoutChangeTestViewController.swift */,
+				BEC090632050BFAE0022E5AD /* Layout1.swift */,
+				BEC090622050BFAE0022E5AD /* Layout2.swift */,
 			);
 			path = FlowLayoutChange;
 			sourceTree = "<group>";
@@ -175,11 +184,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BEC090642050BFAF0022E5AD /* Layout2.swift in Sources */,
 				BEC09060204D39570022E5AD /* ItemAnimationTestViewController.swift in Sources */,
 				BEC0905A204D2AD20022E5AD /* StickyHeadersViewController.swift in Sources */,
 				BEC09061204D39570022E5AD /* ItemAnimaionCollectionView.swift in Sources */,
 				BEC09042204D28C20022E5AD /* AppDelegate.swift in Sources */,
 				BEC0905B204D2AD20022E5AD /* StickyHeadersCollectionViewFlowLayout.swift in Sources */,
+				BEC0906B2050BFB50022E5AD /* FlowLayoutChangeTestViewController.swift in Sources */,
+				BEC090652050BFAF0022E5AD /* Layout1.swift in Sources */,
 				BEC09054204D297E0022E5AD /* ListTableViewController.swift in Sources */,
 				BEC0905D204D300C0022E5AD /* UIColor.swift in Sources */,
 			);

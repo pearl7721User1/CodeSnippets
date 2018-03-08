@@ -8,6 +8,10 @@
 
 import UIKit
 
+//
+// FlowLayoutChangeTestViewController is buggy
+//
+
 class ListTableViewController: UITableViewController {
 
     let testList = ["StickyHeader", "ItemAnimations", "FlowLayoutChange"]
@@ -57,6 +61,7 @@ class ListTableViewController: UITableViewController {
             performSegue(withIdentifier: "ItemAnimationSegue", sender: nil)
         } else if indexPath.row == 2 {
             
+            performSegue(withIdentifier: "FlowLayoutChangeSegue", sender: nil)
         }
         
     }
