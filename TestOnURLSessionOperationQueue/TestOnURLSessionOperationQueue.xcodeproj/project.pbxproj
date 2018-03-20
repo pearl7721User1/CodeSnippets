@@ -30,14 +30,14 @@
 		EE3D6BC92054DBCD00DD61F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE3D6BCC2054DBCD00DD61F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE3D6BCE2054DBCD00DD61F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE3D6BD42054DDB100DD61F3 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample1.jpg; sourceTree = "<group>"; };
-		EE3D6BD52054DDB100DD61F3 /* sample5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample5.jpg; sourceTree = "<group>"; };
-		EE3D6BD62054DDB100DD61F3 /* sample2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample2.jpg; sourceTree = "<group>"; };
-		EE3D6BD72054DDB100DD61F3 /* sample6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample6.jpg; sourceTree = "<group>"; };
-		EE3D6BD82054DDB100DD61F3 /* sample4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample4.jpg; sourceTree = "<group>"; };
-		EE3D6BD92054DDB100DD61F3 /* sample3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample3.jpg; sourceTree = "<group>"; };
-		EE3D6BDA2054DDB100DD61F3 /* sample8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample8.jpg; sourceTree = "<group>"; };
-		EE3D6BDB2054DDB200DD61F3 /* sample7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = sample7.jpg; sourceTree = "<group>"; };
+		EE3D6BD42054DDB100DD61F3 /* sample1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample1.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample1.jpg; sourceTree = "<group>"; };
+		EE3D6BD52054DDB100DD61F3 /* sample5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample5.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample5.jpg; sourceTree = "<group>"; };
+		EE3D6BD62054DDB100DD61F3 /* sample2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample2.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample2.jpg; sourceTree = "<group>"; };
+		EE3D6BD72054DDB100DD61F3 /* sample6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample6.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample6.jpg; sourceTree = "<group>"; };
+		EE3D6BD82054DDB100DD61F3 /* sample4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample4.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample4.jpg; sourceTree = "<group>"; };
+		EE3D6BD92054DDB100DD61F3 /* sample3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample3.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample3.jpg; sourceTree = "<group>"; };
+		EE3D6BDA2054DDB100DD61F3 /* sample8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample8.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample8.jpg; sourceTree = "<group>"; };
+		EE3D6BDB2054DDB200DD61F3 /* sample7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = sample7.jpg; path = ../../TestOnAsyncDownloadWithOperation/TestOnAsyncDownloadWithOperation/sample7.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
