@@ -1,24 +1,12 @@
 //
 //  ViewController.swift
-//  TestOnURLSessionOperationQueue
+//  TestOnDownloadOperationQueue2
 //
-//  Created by SeoGiwon on 11/03/2018.
-//  Copyright © 2018 SeoGiwon. All rights reserved.
+//  Created by GIWON1 on 2018. 3. 21..
+//  Copyright © 2018년 GIWON1. All rights reserved.
 //
 
 import UIKit
-
-/*
-    README
-
-    I wanted to see what an operation queue that a URLSession takes as a parameter can do.
-    My initial thoughts on this is that the operation queue parameter is designed around for each
-    download task to be completed sequantially. But, it turns out, it's not.
- 
-    Once a download task is fired, there's absolutely no guarantee that they arrive in order.
- 
-*/
-
 
 class ViewController: UIViewController, URLSessionDownloadDelegate {
 
@@ -31,7 +19,7 @@ class ViewController: UIViewController, URLSessionDownloadDelegate {
                    "https://cdn.pixabay.com/photo/2018/01/04/18/58/cats-3061372_960_720.jpg",
                    "https://cdn.pixabay.com/photo/2016/12/13/11/24/hoarfrost-1903886_960_720.jpg",
                    "https://cdn.pixabay.com/photo/2018/01/31/09/57/coffee-3120750_960_720.jpg"
-                   ]
+    ]
     
     lazy var operationQueue: OperationQueue = {
         let queue = OperationQueue()
@@ -40,7 +28,7 @@ class ViewController: UIViewController, URLSessionDownloadDelegate {
     }()
     
     lazy var session: URLSession = {
-        let session = URLSession(configuration: .default, delegate: self, delegateQueue: operationQueue)
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: nil)
         return session
     }()
     
@@ -53,7 +41,7 @@ class ViewController: UIViewController, URLSessionDownloadDelegate {
         }
     }
     
-
+    
     func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didResumeAtOffset fileOffset: Int64, expectedTotalBytes: Int64) {
         
     }
@@ -67,9 +55,7 @@ class ViewController: UIViewController, URLSessionDownloadDelegate {
         
         print("\(downloadTask.taskIdentifier) download completed")
     }
-    
-    
+
+
 }
-
-
 
