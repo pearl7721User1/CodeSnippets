@@ -12,25 +12,45 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        /*
-        UIGraphicsBeginImageContextWithOptions(CGSizeMake(imageSize.height, imageSize.width), YES, 1.0);
-        CGContextRef ctx = UIGraphicsGetCurrentContext();
+     
+
         
-        CGContextTranslateCTM(ctx, 0, imageSize.width);
-        CGContextScaleCTM(ctx, 1, -1);
+        let image: UIImage! = UIImage(named: "cat.jpeg")
+
+        let dstImage = self.coreGraphicsOperation(srcImage: image, zoomVector: CGSize(width:1.0, height:1.0), cropRect: CGRect.zero)
         
-        CGContextDrawImage(ctx, CGRectMake(0.0, 0.0, imageSize.height, imageSize.width), image.CGImage);
-        image = UIGraphicsGetImageFromCurrentImageContext();
-        imageData = UIImageJPEGRepresentation(image, 1.0);
+        let imgView = UIImageView(image: dstImage)
+        self.view.addSubview(imgView)
+        imgView.center = self.view.center
+
+        
+
+/*
+        let imgView = UIImageView(image: image)
+        imgView.sizeToFit()
+        self.view.addSubview(imgView)
+        imgView.center = self.view.center
+        
+        let f = imgView.frame
+*/
+    }
+    
+    func coreGraphicsOperation(srcImage: UIImage, zoomVector: CGSize, cropRect:CGRect) -> UIImage {
+        
+        let theRectSize = CGSize(width: srcImage.size.width * zoomVector.width,
+                                 height: srcImage.size.height * zoomVector.height)
+        
+        UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
+
+        let ctx = UIGraphicsGetCurrentContext()
+        ctx?.draw(srcImage.cgImage!, in: CGRect(origin: CGPoint.zero, size: theRectSize))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+//        imageData = UIImageJPEGRepresentation(image, 1.0);
+        
         UIGraphicsEndImageContext();
- */
         
-        let image: UIImage! = UIImage(named: "IMG_5254.jpg")
-        
-        
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: <#T##CGFloat#>, height: <#T##CGFloat#>), <#T##opaque: Bool##Bool#>, <#T##scale: CGFloat##CGFloat#>)
-        
+        return image!
     }
 
     override func didReceiveMemoryWarning() {
