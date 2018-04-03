@@ -8,20 +8,25 @@
 
 import UIKit
 
-class MyTableViewCell: UITableViewCell {
+class Cell1: UITableViewCell {
 
     @IBOutlet weak var theView: UIView!
     @IBOutlet weak var topConstraint: NSLayoutConstraint!
     
+    override func awakeFromNib() {
+        
+    }
 
     func animation() {
         
+        topConstraint.constant = 0
+        
         UIView.animate(withDuration: 0.3, animations: {
+            
+            self.layoutIfNeeded()
             
         }, completion: {
             (finished) in
-            print("Done🔨")
-            
         })
  
         
