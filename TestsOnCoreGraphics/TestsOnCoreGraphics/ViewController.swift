@@ -27,25 +27,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-     
 
         self.view.addSubview(imageView)
-//        let dstImage = self.coreGraphicsOperation(srcImage: sourceImage, zoomVector: CGSize(width:1.0, height:1.0), cropRect: CGRect.zero)
 
-        
-
-/*
-        let imgView = UIImageView(image: image)
-        imgView.sizeToFit()
-        self.view.addSubview(imgView)
-        imgView.center = self.view.center
-        
-        let f = imgView.frame
-*/
     }
-    
-    
-    
     
     @IBAction func btnOriginal(_ sender: UIBarButtonItem) {
         
@@ -63,6 +48,9 @@ class ViewController: UIViewController {
         
         dstImage = self.clockWiseRotate(srcImage: sourceImage)
     }
+    @IBAction func btnResize(_ sender: UIBarButtonItem) {
+        dstImage = self.resize(srcImage: sourceImage, zoomVector: CGSize(width:1.5, height:1.5))
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -75,7 +63,6 @@ class ViewController: UIViewController {
         }
     }
     
-
 }
 
 extension ViewController {
@@ -91,7 +78,7 @@ extension ViewController {
         ctx?.draw(srcImage.cgImage!, in: CGRect(origin: CGPoint.zero, size: theRectSize))
         
         let image = UIGraphicsGetImageFromCurrentImageContext();
-        //        imageData = UIImageJPEGRepresentation(image, 1.0);
+        
         
         UIGraphicsEndImageContext();
         
@@ -146,19 +133,16 @@ extension ViewController {
         let theRectSize = CGSize(width: srcImage.size.width,
                                  height: srcImage.size.height)
         
-        UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
+        UIGraphicsBeginImageContextWithOptions(CGSize(width:theRectSize.height, height:theRectSize.width), true, 1.0)
         
         let ctx = UIGraphicsGetCurrentContext()
         
-        // The y-axis of core graphics context coordinate space is upside down. It has to be reversed.
+        ctx?.rotate(by: CGFloat((Double.pi / 180) * 90))
+        ctx?.translateBy(x: 0, y: -theRectSize.height)
+        
         ctx?.translateBy(x: 0, y: theRectSize.height)
         ctx?.scaleBy(x: 1, y: -1)
         
-        ctx?.rotate(by: CGFloat(Double.pi / 2))
-        
-        
-        
-        // The y-axis of core graphics context coordinate space is upside down from the beginning. Doing nothing will flip the image.
         ctx?.draw(srcImage.cgImage!, in: CGRect(origin: CGPoint.zero, size: theRectSize))
         
         let image = UIGraphicsGetImageFromCurrentImageContext();
@@ -166,4 +150,56 @@ extension ViewController {
         
         return image!
     }
+    
+    func resize(srcImage: UIImage, zoomVector: CGSize) -> UIImage {
+        
+        // if zoomVector isn't valid, return the source image right away
+        
+        // otherwise,
+        let theRectSize = CGSize(width: srcImage.size.width / zoomVector.width,
+                                 height: srcImage.size.height / zoomVector.height)
+        
+        
+        UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        
+        ctx?.translateBy(x: 0, y: theRectSize.height)
+        ctx?.scaleBy(x: 1, y: -1)
+        
+        ctx?.draw(srcImage.cgImage!, in: CGRect(origin: CGPoint.zero, size: theRectSize))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return image!
+    }
+    
+    func crop(srcImage: UIImage, cropRect: CGRect) -> UIImage {
+        
+        // if cropRect isn't valid, return the source image right away
+        
+        // otherwise,
+        let theRectSize = CGSize(width: srcImage.size.width,
+                                 height: srcImage.size.height)
+        
+        let theCropRect = CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
+        
+        UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
+        
+        let ctx = UIGraphicsGetCurrentContext()
+        
+        ctx?.translateBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+        
+        ctx?.translateBy(x: 0, y: theRectSize.height)
+        ctx?.scaleBy(x: 1, y: -1)
+        
+        ctx?.draw(srcImage.cgImage!, in: CGRect(origin: CGPoint.zero, size: theRectSize))
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        return image!
+    }
+    
 }

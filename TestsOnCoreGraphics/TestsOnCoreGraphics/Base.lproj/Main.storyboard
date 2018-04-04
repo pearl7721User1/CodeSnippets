@@ -42,6 +42,11 @@
                                 <action selector="btnClockwiseRotate:" destination="BYZ-38-t0r" id="JPS-CX-Xbm"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem title="resize" id="75u-RI-cFc">
+                            <connections>
+                                <action selector="btnResize:" destination="BYZ-38-t0r" id="HIx-Ir-aTc"/>
+                            </connections>
+                        </barButtonItem>
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="Cei-at-8DA"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
