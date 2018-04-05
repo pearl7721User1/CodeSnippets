@@ -51,6 +51,9 @@ class ViewController: UIViewController {
     @IBAction func btnResize(_ sender: UIBarButtonItem) {
         dstImage = self.resize(srcImage: sourceImage, zoomVector: CGSize(width:1.5, height:1.5))
     }
+    @IBAction func btnCrop(_ sender: UIBarButtonItem) {
+        dstImage = self.crop(srcImage: sourceImage, cropRectOfPCT: CGRect(x: 0.0, y: 0.5, width: 0.5, height: 0.5))
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
@@ -175,21 +178,25 @@ extension ViewController {
         return image!
     }
     
-    func crop(srcImage: UIImage, cropRect: CGRect) -> UIImage {
+    func crop(srcImage: UIImage, cropRectOfPCT: CGRect) -> UIImage {
         
         // if cropRect isn't valid, return the source image right away
-        
-        // otherwise,
+
         let theRectSize = CGSize(width: srcImage.size.width,
                                  height: srcImage.size.height)
         
-        let theCropRect = CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>)
         
         UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
         
         let ctx = UIGraphicsGetCurrentContext()
         
-        ctx?.translateBy(x: <#T##CGFloat#>, y: <#T##CGFloat#>)
+        
+        
+        let clipRect = CGRect(x: theRectSize.width * cropRectOfPCT.origin.x,
+                              y: theRectSize.height * cropRectOfPCT.origin.y,
+                              width: theRectSize.width * cropRectOfPCT.size.width,
+                              height: theRectSize.height * cropRectOfPCT.size.height)
+        ctx?.clip(to: clipRect)
         
         ctx?.translateBy(x: 0, y: theRectSize.height)
         ctx?.scaleBy(x: 1, y: -1)
