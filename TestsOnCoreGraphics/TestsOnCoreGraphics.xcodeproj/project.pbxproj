@@ -7,16 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE47B7D22073540400BE9963 /* OriginalImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE47B7D12073540400BE9963 /* OriginalImageViewController.swift */; };
+		BE47B7D4207378E300BE9963 /* cat2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BE47B7D3207378E300BE9963 /* cat2.jpg */; };
 		BE4FE00620561D2C0036AD1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FE00520561D2C0036AD1C /* AppDelegate.swift */; };
 		BE4FE00820561D2C0036AD1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4FE00720561D2C0036AD1C /* ViewController.swift */; };
 		BE4FE00B20561D2C0036AD1C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4FE00920561D2C0036AD1C /* Main.storyboard */; };
 		BE4FE00D20561D2C0036AD1C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4FE00C20561D2C0036AD1C /* Assets.xcassets */; };
 		BE4FE01020561D2C0036AD1C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4FE00E20561D2C0036AD1C /* LaunchScreen.storyboard */; };
-		BEC867FF206105D50071D177 /* IMG_5452.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BEC867FE206105D50071D177 /* IMG_5452.jpg */; };
 		EE529C3220726AFE001B9EE9 /* cat.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EE529C3120726AFD001B9EE9 /* cat.jpeg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BE47B7D12073540400BE9963 /* OriginalImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalImageViewController.swift; sourceTree = "<group>"; };
+		BE47B7D3207378E300BE9963 /* cat2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat2.jpg; sourceTree = "<group>"; };
 		BE4FE00220561D2C0036AD1C /* TestsOnCoreGraphics.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestsOnCoreGraphics.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4FE00520561D2C0036AD1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE4FE00720561D2C0036AD1C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,7 +27,6 @@
 		BE4FE00C20561D2C0036AD1C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4FE00F20561D2C0036AD1C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4FE01120561D2C0036AD1C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEC867FE206105D50071D177 /* IMG_5452.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = IMG_5452.jpg; sourceTree = "<group>"; };
 		EE529C3120726AFD001B9EE9 /* cat.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cat.jpeg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,8 +60,9 @@
 		BE4FE00420561D2C0036AD1C /* TestsOnCoreGraphics */ = {
 			isa = PBXGroup;
 			children = (
+				BE47B7D12073540400BE9963 /* OriginalImageViewController.swift */,
 				EE529C3120726AFD001B9EE9 /* cat.jpeg */,
-				BEC867FE206105D50071D177 /* IMG_5452.jpg */,
+				BE47B7D3207378E300BE9963 /* cat2.jpg */,
 				BE4FE00520561D2C0036AD1C /* AppDelegate.swift */,
 				BE4FE00720561D2C0036AD1C /* ViewController.swift */,
 				BE4FE00920561D2C0036AD1C /* Main.storyboard */,
@@ -129,10 +132,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE47B7D4207378E300BE9963 /* cat2.jpg in Resources */,
 				BE4FE01020561D2C0036AD1C /* LaunchScreen.storyboard in Resources */,
 				BE4FE00D20561D2C0036AD1C /* Assets.xcassets in Resources */,
 				BE4FE00B20561D2C0036AD1C /* Main.storyboard in Resources */,
-				BEC867FF206105D50071D177 /* IMG_5452.jpg in Resources */,
 				EE529C3220726AFE001B9EE9 /* cat.jpeg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,6 +149,7 @@
 			files = (
 				BE4FE00820561D2C0036AD1C /* ViewController.swift in Sources */,
 				BE4FE00620561D2C0036AD1C /* AppDelegate.swift in Sources */,
+				BE47B7D22073540400BE9963 /* OriginalImageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
