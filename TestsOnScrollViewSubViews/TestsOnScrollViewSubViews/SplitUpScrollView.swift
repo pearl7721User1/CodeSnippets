@@ -179,7 +179,7 @@ class SplitUpScrollView: UIScrollView {
                              height: self.bounds.size.height / self.contentSize.height)
         
         print("pctRect: \(pctRect.origin.x) \(pctRect.origin.y) \(pctRect.size.width) \(pctRect.size.height)")
-        
+        print("zoom: \(self.zoomScale)")
     }
 }
 

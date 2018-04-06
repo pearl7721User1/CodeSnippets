@@ -52,7 +52,7 @@ class ViewController: UIViewController {
         dstImage = self.resize(srcImage: sourceImage, zoomVector: CGSize(width:1.5, height:1.5))
     }
     @IBAction func btnCrop(_ sender: UIBarButtonItem) {
-        dstImage = self.crop(srcImage: sourceImage, cropRectOfPCT: CGRect(x: 0.0, y: 0.5, width: 0.5, height: 0.5))
+        dstImage = self.crop(srcImage: sourceImage, cropRectOfPCT: CGRect(x: 0.0, y: 0.5, width: 0.5, height: 0.5), srcImageScaleFactor: 0.5)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -178,12 +178,12 @@ extension ViewController {
         return image!
     }
     
-    func crop(srcImage: UIImage, cropRectOfPCT: CGRect) -> UIImage {
+    func crop(srcImage: UIImage, cropRectOfPCT: CGRect, srcImageScaleFactor: CGFloat) -> UIImage {
         
         // if cropRect isn't valid, return the source image right away
 
-        let theRectSize = CGSize(width: srcImage.size.width,
-                                 height: srcImage.size.height)
+        let theRectSize = CGSize(width: srcImage.size.width * srcImageScaleFactor,
+                                 height: srcImage.size.height * srcImageScaleFactor)
         
         
         UIGraphicsBeginImageContextWithOptions(theRectSize, true, 1.0)
