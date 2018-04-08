@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xti-sA-Amd" customClass="WindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
+                                <rect key="frame" x="67" y="81" width="300" height="100"/>
+                                <color key="backgroundColor" red="0.13147546139999999" green="0.16157193789999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="SGa-zf-tqg"/>
+                                    <constraint firstAttribute="width" constant="300" id="bnn-C5-oJC"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="a.jpg"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="viewHeightConstraint" destination="SGa-zf-tqg" id="n4k-31-rZW"/>
+                                    <outlet property="viewLeftConstraint" destination="aqe-lO-O9s" id="3Hy-Xj-zKe"/>
+                                    <outlet property="viewTopConstraint" destination="TVI-UZ-ci7" id="OS7-NS-cAB"/>
+                                    <outlet property="viewWidthConstraint" destination="bnn-C5-oJC" id="1Dy-GO-0sp"/>
+                                </connections>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-nh-T9O" customClass="WindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
+                                <rect key="frame" x="67" y="279" width="300" height="100"/>
+                                <color key="backgroundColor" red="0.13183300000000001" green="0.91540404040000001" blue="0.2875493227" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="4fb-XG-qoG"/>
+                                    <constraint firstAttribute="height" constant="100" id="ywf-kt-aQL"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="b.jpeg"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="viewHeightConstraint" destination="ywf-kt-aQL" id="8hV-kr-xx6"/>
+                                    <outlet property="viewLeftConstraint" destination="8zq-rH-xBv" id="vfe-Sg-v21"/>
+                                    <outlet property="viewTopConstraint" destination="NMQ-VI-Z0i" id="CIW-ce-sga"/>
+                                    <outlet property="viewWidthConstraint" destination="4fb-XG-qoG" id="cW4-NM-wtH"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1cZ-nu-f6D">
+                                <rect key="frame" x="242" y="28" width="55" height="30"/>
+                                <state key="normal" title="Replace"/>
+                                <connections>
+                                    <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5cB-10-ikP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="RqY-nh-T9O" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="8zq-rH-xBv"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1cZ-nu-f6D" secondAttribute="trailing" constant="78" id="LSi-26-i3Y"/>
+                            <constraint firstItem="RqY-nh-T9O" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="259" id="NMQ-VI-Z0i"/>
+                            <constraint firstItem="xti-sA-Amd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="61" id="TVI-UZ-ci7"/>
+                            <constraint firstItem="xti-sA-Amd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="aqe-lO-O9s"/>
+                            <constraint firstItem="1cZ-nu-f6D" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="rjo-np-02p"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="myView" destination="RqY-nh-T9O" id="6Tc-Z5-GpM"/>
+                        <outlet property="theView" destination="xti-sA-Amd" id="AM2-cC-Pgh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="a.jpg" width="900" height="900"/>
+        <image name="b.jpeg" width="1400" height="600"/>
+    </resources>
+</document>
