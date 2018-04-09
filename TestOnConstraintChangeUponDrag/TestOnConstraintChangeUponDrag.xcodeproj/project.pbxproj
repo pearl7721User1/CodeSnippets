@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE1B3A87207AE90B00D075AB /* WindowScrollViewReplaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9EB2079CCDE003233D0 /* WindowScrollViewReplaceExtension.swift */; };
 		EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D520786698003233D0 /* AppDelegate.swift */; };
 		EE74F9D820786698003233D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D720786698003233D0 /* ViewController.swift */; };
 		EE74F9DB20786698003233D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE74F9D920786698003233D0 /* Main.storyboard */; };
@@ -156,6 +157,7 @@
 				EE74F9D820786698003233D0 /* ViewController.swift in Sources */,
 				EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */,
 				EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */,
+				BE1B3A87207AE90B00D075AB /* WindowScrollViewReplaceExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

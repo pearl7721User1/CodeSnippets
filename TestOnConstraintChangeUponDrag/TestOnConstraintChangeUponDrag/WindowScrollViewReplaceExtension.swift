@@ -10,14 +10,27 @@ import UIKit
 
 extension WindowScrollView {
     
-    func replaceConstraintsConstant(top: CGFloat, left: CGFloat, width: CGFloat, height: CGFloat) {
+    func constraintValues() -> [CGFloat] {
         
-        viewTopConstraint.constant = top
-        viewLeftConstraint.constant = left
-        viewWidthConstraint.constant = width
-        viewHeightConstraint.constant = height
+        return [viewTopConstraint.constant, viewLeftConstraint.constant, viewWidthConstraint?.constant ?? 0, viewHeightConstraint?.constant ?? 0]
+    }
+    
+    func setConstraintValues(values: [CGFloat]) {
+        
+        guard values.count == 4 else {
+            print("setConstraintValues wrong values")
+            return
+        }
+        
+        viewTopConstraint.constant = values[0]
+        viewLeftConstraint.constant = values[1]
+        viewWidthConstraint?.constant = values[2]
+        viewHeightConstraint?.constant = values[3]
+        
+        UIView.animate(withDuration: 1.0) {
+            self.layoutIfNeeded()
+        }
     }
     
     
 }
-

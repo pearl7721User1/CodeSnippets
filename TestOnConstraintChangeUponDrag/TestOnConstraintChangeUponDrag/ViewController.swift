@@ -11,22 +11,19 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var theView: WindowScrollView!
-   
-    
-    
     @IBOutlet weak var myView: WindowScrollView!
     
     
     @IBAction func btnAction(_ sender: UIButton) {
-/*
-        print(theView.constraints.count)
         
-        NSLayoutConstraint.deactivate([theViewLeftConstraint, theViewTopConstraint, theViewWidthConstraint, theViewHeightConstraint])
         
-        print(theView.constraints.count)
         
-        NSLayoutConstraint.activate([theViewLeftConstraint, theViewTopConstraint, theViewWidthConstraint, theViewHeightConstraint])
-*/
+        let theViewConstraintValues = theView.constraintValues()
+        let myViewConstraintValues = myView.constraintValues()
+        
+        theView.setConstraintValues(values: myViewConstraintValues)
+        myView.setConstraintValues(values: theViewConstraintValues)
+       
     }
     
     override func viewDidLoad() {
