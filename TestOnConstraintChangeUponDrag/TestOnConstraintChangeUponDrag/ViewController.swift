@@ -24,6 +24,10 @@ class ViewController: UIViewController {
         theView.setConstraintValues(values: myViewConstraintValues)
         myView.setConstraintValues(values: theViewConstraintValues)
        
+        
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
     }
     
     override func viewDidLoad() {
