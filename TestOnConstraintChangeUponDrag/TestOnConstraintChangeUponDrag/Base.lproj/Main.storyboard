@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="tep-V1-ijl">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -18,7 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xti-sA-Amd" customClass="WindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xti-sA-Amd" customClass="GrabbableWindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
                                 <rect key="frame" x="67" y="81" width="300" height="100"/>
                                 <color key="backgroundColor" red="0.13147546139999999" green="0.16157193789999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
@@ -36,7 +36,7 @@
                                     <outlet property="viewWidthConstraint" destination="bnn-C5-oJC" id="1Dy-GO-0sp"/>
                                 </connections>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-nh-T9O" customClass="WindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RqY-nh-T9O" customClass="GrabbableWindowScrollView" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
                                 <rect key="frame" x="67" y="279" width="300" height="300"/>
                                 <color key="backgroundColor" red="0.13183300000000001" green="0.91540404040000001" blue="0.2875493227" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -79,6 +79,35 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--My View Controller-->
+        <scene sceneID="3BG-Qi-5EP">
+            <objects>
+                <viewController id="tep-V1-ijl" customClass="MyViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nzw-M7-1ia">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEe-xR-aUq" customClass="LayoutEditingView_Type1" customModule="TestOnConstraintChangeUponDrag" customModuleProvider="target">
+                                <rect key="frame" x="34" y="73" width="300" height="300"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="hzN-fX-0t6"/>
+                                    <constraint firstAttribute="width" constant="300" id="wkw-FY-M6I"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sEe-xR-aUq" firstAttribute="leading" secondItem="7Hy-d4-kVO" secondAttribute="leading" constant="34" id="Jc2-P4-UgQ"/>
+                            <constraint firstItem="sEe-xR-aUq" firstAttribute="top" secondItem="7Hy-d4-kVO" secondAttribute="top" constant="53" id="NPw-w6-sSJ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="7Hy-d4-kVO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ajl-xA-udm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1645.5999999999999" y="56.221889055472268"/>
         </scene>
     </scenes>
     <resources>

@@ -17,6 +17,11 @@
 		EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */; };
 		EE74F9F32079D0C4003233D0 /* a.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE74F9F22079D0C4003233D0 /* a.jpg */; };
 		EE74F9F52079D0CE003233D0 /* b.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EE74F9F42079D0CE003233D0 /* b.jpeg */; };
+		EE74F9F7207C57B4003233D0 /* GrabbableWindowScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */; };
+		EE74FA23207E3728003233D0 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA22207E3728003233D0 /* MyViewController.swift */; };
+		EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */; };
+		EE74FA29207E38A7003233D0 /* LayoutEditingSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */; };
+		EE74FA2B207E3B77003233D0 /* LayoutEditingView_Type1.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		EE74F9ED2079CEED003233D0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		EE74F9F22079D0C4003233D0 /* a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpg; sourceTree = "<group>"; };
 		EE74F9F42079D0CE003233D0 /* b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpeg; sourceTree = "<group>"; };
+		EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrabbableWindowScrollView.swift; sourceTree = "<group>"; };
+		EE74FA22207E3728003233D0 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
+		EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEditingView_Type1.swift; sourceTree = "<group>"; };
+		EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEditingSizeControl.swift; sourceTree = "<group>"; };
+		EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LayoutEditingView_Type1.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +77,14 @@
 				EE74F9ED2079CEED003233D0 /* UIImage+Extension.swift */,
 				EE74F9D520786698003233D0 /* AppDelegate.swift */,
 				EE74F9D720786698003233D0 /* ViewController.swift */,
+				EE74FA22207E3728003233D0 /* MyViewController.swift */,
 				EE74F9F22079D0C4003233D0 /* a.jpg */,
 				EE74F9F42079D0CE003233D0 /* b.jpeg */,
+				EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */,
+				EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */,
+				EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */,
 				EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */,
+				EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */,
 				EE74F9EB2079CCDE003233D0 /* WindowScrollViewReplaceExtension.swift */,
 				EE74F9D920786698003233D0 /* Main.storyboard */,
 				EE74F9DC20786698003233D0 /* Assets.xcassets */,
@@ -141,6 +156,7 @@
 				EE74F9F52079D0CE003233D0 /* b.jpeg in Resources */,
 				EE74F9F32079D0C4003233D0 /* a.jpg in Resources */,
 				EE74F9E020786698003233D0 /* LaunchScreen.storyboard in Resources */,
+				EE74FA2B207E3B77003233D0 /* LayoutEditingView_Type1.xib in Resources */,
 				EE74F9DD20786698003233D0 /* Assets.xcassets in Resources */,
 				EE74F9DB20786698003233D0 /* Main.storyboard in Resources */,
 			);
@@ -155,9 +171,13 @@
 			files = (
 				EE74F9EE2079CEED003233D0 /* UIImage+Extension.swift in Sources */,
 				EE74F9D820786698003233D0 /* ViewController.swift in Sources */,
+				EE74F9F7207C57B4003233D0 /* GrabbableWindowScrollView.swift in Sources */,
+				EE74FA23207E3728003233D0 /* MyViewController.swift in Sources */,
 				EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */,
+				EE74FA29207E38A7003233D0 /* LayoutEditingSizeControl.swift in Sources */,
 				EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */,
 				BE1B3A87207AE90B00D075AB /* WindowScrollViewReplaceExtension.swift in Sources */,
+				EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

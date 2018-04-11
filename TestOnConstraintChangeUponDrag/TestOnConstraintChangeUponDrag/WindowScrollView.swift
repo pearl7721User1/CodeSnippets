@@ -52,7 +52,9 @@ class WindowScrollView: UIScrollView {
     
     
     @IBOutlet private(set) weak var viewWidthConstraint: NSLayoutConstraint? {
-        didSet { updateImageViewConstraints() }
+        didSet {
+            updateImageViewConstraints()            
+        }
     }
     @IBOutlet private(set) weak var viewHeightConstraint: NSLayoutConstraint? {
         didSet { updateImageViewConstraints() }
@@ -110,6 +112,14 @@ class WindowScrollView: UIScrollView {
         
     }
     
+    func testModifyingConstraintsConstants(top: CGFloat, left: CGFloat, width: CGFloat, height: CGFloat) {
+        
+        viewWidthConstraint?.constant = width
+        viewHeightConstraint?.constant = height
+        viewLeftConstraint.constant = left
+        viewTopConstraint.constant = top
+    }
+    
     /// WindowScrollView updates its position by given CGPoint value
     func update(offsetDelta: CGPoint) {
         
@@ -154,12 +164,28 @@ class WindowScrollView: UIScrollView {
         WindowScrollView. If the given image view size is bigger than WindowScrollView's bounds, the
         image view zooms in, otherwise, zooms out by itself.
     */
-    private func updateImageViewConstraints() {
+    func updateImageViewConstraints() {
         
         imageViewWidthConstraint.constant = imageSizeAsContentAspectFill.width + 0.25
         imageViewHeightConstraint.constant = imageSizeAsContentAspectFill.height + 0.25
 
-        self.layoutIfNeeded()
+    }
+    
+    func imgSizeToFrameSizeRatio() -> CGFloat {
+        
+        guard let image = self.image else { return 0 }
+        
+        return imageSizeAsContentAspectFill.width / image.size.width
+    }
+    
+    func imgContentFramePCT() -> CGRect {
+        
+        let rectPCT = CGRect(x: self.contentOffset.x / self.contentSize.width,
+                             y: self.contentOffset.y / self.contentSize.height,
+                             width: self.bounds.size.width / self.contentSize.width,
+                             height: self.bounds.size.height / self.contentSize.height)
+        
+        return rectPCT
     }
 }
 

@@ -10,8 +10,8 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    @IBOutlet weak var theView: WindowScrollView!
-    @IBOutlet weak var myView: WindowScrollView!
+    @IBOutlet weak var theView: GrabbableWindowScrollView!
+    @IBOutlet weak var myView: GrabbableWindowScrollView!
     
     
     @IBAction func btnAction(_ sender: UIButton) {
@@ -34,6 +34,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        theView.grabDelegate = self
+        myView.grabDelegate = self
         
         
     }
@@ -45,3 +47,17 @@ class ViewController: UIViewController {
 
 }
 
+extension ViewController: GrabDelegate {
+    func viewDidGrabbed(grabbableView: GrabbableWindowScrollView) {
+        
+    }
+    
+    func viewDidMove(grabbableView: GrabbableWindowScrollView, delta: CGPoint) {
+        
+        grabbableView.update(offsetDelta: delta)
+    }
+    
+    func viewDidDropped(grabbableView: GrabbableWindowScrollView) {
+        
+    }
+}
