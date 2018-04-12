@@ -20,6 +20,7 @@ class GrabbableWindowScrollView: WindowScrollView {
     var grabDelegate: GrabDelegate?
     var grabPoint: CGPoint?
     
+    
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
@@ -27,6 +28,8 @@ class GrabbableWindowScrollView: WindowScrollView {
         self.addGestureRecognizer(longGesture)
         
     }
+    
+    
     
     @objc func handleLongPress(_ sender: UILongPressGestureRecognizer) {
         
@@ -58,4 +61,7 @@ class GrabbableWindowScrollView: WindowScrollView {
         }
     }
 
+    func UIUpdate() {
+        
+    }
 }

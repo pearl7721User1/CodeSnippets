@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BE1B3A87207AE90B00D075AB /* WindowScrollViewReplaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9EB2079CCDE003233D0 /* WindowScrollViewReplaceExtension.swift */; };
 		EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D520786698003233D0 /* AppDelegate.swift */; };
 		EE74F9D820786698003233D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D720786698003233D0 /* ViewController.swift */; };
 		EE74F9DB20786698003233D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE74F9D920786698003233D0 /* Main.storyboard */; };
@@ -33,7 +32,6 @@
 		EE74F9DF20786698003233D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE74F9E120786698003233D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowScrollView.swift; sourceTree = "<group>"; };
-		EE74F9EB2079CCDE003233D0 /* WindowScrollViewReplaceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowScrollViewReplaceExtension.swift; sourceTree = "<group>"; };
 		EE74F9ED2079CEED003233D0 /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		EE74F9F22079D0C4003233D0 /* a.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = a.jpg; sourceTree = "<group>"; };
 		EE74F9F42079D0CE003233D0 /* b.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = b.jpeg; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 				EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */,
 				EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */,
 				EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */,
-				EE74F9EB2079CCDE003233D0 /* WindowScrollViewReplaceExtension.swift */,
 				EE74F9D920786698003233D0 /* Main.storyboard */,
 				EE74F9DC20786698003233D0 /* Assets.xcassets */,
 				EE74F9DE20786698003233D0 /* LaunchScreen.storyboard */,
@@ -176,7 +173,6 @@
 				EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */,
 				EE74FA29207E38A7003233D0 /* LayoutEditingSizeControl.swift in Sources */,
 				EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */,
-				BE1B3A87207AE90B00D075AB /* WindowScrollViewReplaceExtension.swift in Sources */,
 				EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

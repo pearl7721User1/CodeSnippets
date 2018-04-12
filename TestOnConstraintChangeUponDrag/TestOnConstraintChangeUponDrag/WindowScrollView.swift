@@ -50,6 +50,7 @@ class WindowScrollView: UIScrollView {
     private var imageViewWidthConstraint = NSLayoutConstraint()
     private var imageViewHeightConstraint = NSLayoutConstraint()
     
+    var inheritedViewConstraintValue: [CGFloat] = [0, 0, 0, 0]
     
     @IBOutlet private(set) weak var viewWidthConstraint: NSLayoutConstraint? {
         didSet {
@@ -97,7 +98,7 @@ class WindowScrollView: UIScrollView {
     }
     
     
-    // MARK: - Setting AutoLayout
+    // MARK: - Setting View Constraints
     /// WindowScrollView installs constraints by itself by calling this function.
     func setupConstraints(superview: UIView, size: CGSize, offset: CGPoint) {
         
@@ -112,12 +113,47 @@ class WindowScrollView: UIScrollView {
         
     }
     
-    func testModifyingConstraintsConstants(top: CGFloat, left: CGFloat, width: CGFloat, height: CGFloat) {
+    // MARK: - Updating View Constraints
+    func constraintValues() -> [CGFloat] {
         
-        viewWidthConstraint?.constant = width
-        viewHeightConstraint?.constant = height
-        viewLeftConstraint.constant = left
-        viewTopConstraint.constant = top
+        return [viewTopConstraint.constant, viewLeftConstraint.constant, viewWidthConstraint?.constant ?? 0, viewHeightConstraint?.constant ?? 0]
+    }
+    
+    func setConstraintValues(values: [CGFloat]) {
+        
+        guard values.count == 4 else {
+            print("setConstraintValues wrong values")
+            return
+        }
+        
+        viewTopConstraint.constant = values[0]
+        viewLeftConstraint.constant = values[1]
+        viewWidthConstraint?.constant = values[2]
+        viewHeightConstraint?.constant = values[3]
+        
+        UIView.animate(withDuration: 1.0) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    func setInheritedConstraintValues(top: CGFloat, left: CGFloat, width: CGFloat, height: CGFloat, shouldUpdateCurrentValues isUpdated: Bool) {
+        
+        inheritedViewConstraintValue = [top, left, width, height]
+        
+        if (isUpdated) {
+            viewTopConstraint.constant = top
+            viewLeftConstraint.constant = left
+            viewWidthConstraint?.constant = width
+            viewHeightConstraint?.constant = height
+        }
+        
+    }
+    
+    func resetCurrentConstraintsToInheritedValues() {
+        viewTopConstraint.constant = inheritedViewConstraintValue[0]
+        viewLeftConstraint.constant = inheritedViewConstraintValue[1]
+        viewWidthConstraint?.constant = inheritedViewConstraintValue[2]
+        viewHeightConstraint?.constant = inheritedViewConstraintValue[3]
     }
     
     /// WindowScrollView updates its position by given CGPoint value
@@ -138,10 +174,11 @@ class WindowScrollView: UIScrollView {
     }
     
     
+    // MARK: - Setting/Updating Image View Constraints
     /**
-        It installs constraints for imageview against its parent view(WindowScrollView) for the first
-        time ever. This function must not be called more than once.
-    */
+     It installs constraints for imageview against its parent view(WindowScrollView) for the first
+     time ever. This function must not be called more than once.
+     */
     private func setupImageViewConstraints() {
         
         imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -160,17 +197,20 @@ class WindowScrollView: UIScrollView {
     }
     
     /**
-        It updates the very constraints about how much the size of the image view will be in
-        WindowScrollView. If the given image view size is bigger than WindowScrollView's bounds, the
-        image view zooms in, otherwise, zooms out by itself.
-    */
+     It updates the very constraints about how much the size of the image view will be in
+     WindowScrollView. If the given image view size is bigger than WindowScrollView's bounds, the
+     image view zooms in, otherwise, zooms out by itself.
+     */
     func updateImageViewConstraints() {
         
         imageViewWidthConstraint.constant = imageSizeAsContentAspectFill.width + 0.25
         imageViewHeightConstraint.constant = imageSizeAsContentAspectFill.height + 0.25
-
+        
     }
     
+    
+    
+    // MARK: - Image view values
     func imgSizeToFrameSizeRatio() -> CGFloat {
         
         guard let image = self.image else { return 0 }

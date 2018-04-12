@@ -64,16 +64,21 @@ class LayoutEditingView_Type1: UIView {
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]));
         self.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[view]-0-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["view": view]))
         updateConstraintsIfNeeded()
+        
+        
+        
     }
     
     override func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
+        grabbableViewAlpha.grabDelegate = self
+        grabbableViewBeta.grabDelegate = self
         
-        
-        grabbableViewAlpha.testModifyingConstraintsConstants(top: 0, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2)
+        grabbableViewAlpha.setInheritedConstraintValues(top: 0, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2, shouldUpdateCurrentValues: true)
         grabbableViewAlpha.updateImageViewConstraints()
-        grabbableViewBeta.testModifyingConstraintsConstants(top: self.frame.size.height / 2, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2)
+        
+        grabbableViewBeta.setInheritedConstraintValues(top: self.frame.size.height / 2, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2, shouldUpdateCurrentValues: true)
         grabbableViewBeta.updateImageViewConstraints()
  
         
@@ -86,7 +91,7 @@ class LayoutEditingView_Type1: UIView {
 
 extension LayoutEditingView_Type1: GrabDelegate {
     func viewDidGrabbed(grabbableView: GrabbableWindowScrollView) {
-        
+        view.bringSubview(toFront: grabbableView)
     }
     
     func viewDidMove(grabbableView: GrabbableWindowScrollView, delta: CGPoint) {
