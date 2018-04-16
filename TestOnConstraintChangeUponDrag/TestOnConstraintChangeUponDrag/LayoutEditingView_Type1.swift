@@ -25,11 +25,12 @@ class LayoutEditingView_Type1: UIView {
     
     @IBOutlet weak var grabbableViewAlpha: GrabbableWindowScrollView!
     @IBOutlet weak var grabbableViewBeta: GrabbableWindowScrollView!
+    @IBOutlet weak var sizeControlAlpha: WindowScrollViewSizeControl!
     
     /*
-    lazy var sizeControlAlpha: LayoutEditingSizeControl = {
+    lazy var sizeControlAlpha: WindowScrollViewSizeControl = {
        
-        let control = LayoutEditingSizeControl(controlType: .horizontal)
+        let control = WindowScrollViewSizeControl(controlType: .horizontal)
         control.delegate = self
         return control
     }()
@@ -74,17 +75,16 @@ class LayoutEditingView_Type1: UIView {
         
         grabbableViewAlpha.grabDelegate = self
         grabbableViewBeta.grabDelegate = self
+        sizeControlAlpha.delegate = self
         
-        grabbableViewAlpha.setInheritedConstraintValues(top: 0, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2, shouldUpdateCurrentValues: true)
+        grabbableViewAlpha.setInheritedConstraintValues(values: [0, 0, self.frame.size.width, self.frame.size.height / 2], shouldUpdateCurrentValues: true)
         grabbableViewAlpha.updateImageViewConstraints()
         
-        grabbableViewBeta.setInheritedConstraintValues(top: self.frame.size.height / 2, left: 0, width: self.frame.size.width, height: self.frame.size.height / 2, shouldUpdateCurrentValues: true)
+        grabbableViewBeta.setInheritedConstraintValues(values: [0, self.frame.size.height / 2, self.frame.size.width, self.frame.size.height / 2], shouldUpdateCurrentValues: true)
         grabbableViewBeta.updateImageViewConstraints()
- 
         
-        print("viewWillMove")
-        print("viewFrame: \(self.view.frame.origin.x),\(self.view.frame.origin.y), \(self.view.frame.size.width), \(self.view.frame.size.height)")
-        print("viewFrame2: \(self.frame.origin.x),\(self.frame.origin.y), \(self.frame.size.width), \(self.frame.size.height)")
+        sizeControlAlpha.setConstraintValues(values: [0, self.frame.size.height / 2 - 15, self.frame.size.width, 30])
+        
     }
     
 }
@@ -100,27 +100,29 @@ extension LayoutEditingView_Type1: GrabDelegate {
     }
     
     func viewDidDropped(grabbableView: GrabbableWindowScrollView) {
-        
+        grabbableView.resetCurrentConstraintsToInheritedValues()
     }
 }
 
-/*
-extension LayoutEditingView_Type1: LayoutEditingSizeControlProtocol {
+
+extension LayoutEditingView_Type1: WindowScrollViewSizeControlProtocol {
     
-    func shouldMove(sizeControl: LayoutEditingSizeControl, delta: CGPoint, currentCenterOffset: CGPoint) -> Bool {
+    
+    func shouldMove(sizeControl: WindowScrollViewSizeControl, delta: CGPoint) -> Bool {
         
         /*
          The size control must stay in the boundRect. Otherwise, the
          movement must not be allowed.
          */
-        let newCenterWillBe = CGPoint(x: delta.x + currentCenterOffset.x + self.bounds.midX,
-                                      y: delta.y + currentCenterOffset.y + self.bounds.midY)
+        let newCenterWillBe = CGPoint(x: sizeControl.center.x + delta.x,
+                                      y: sizeControl.center.y + delta.y)
         var boundRect = CGRect.zero
         
         if sizeControl === self.sizeControlAlpha {
             boundRect = CGRect(x: 0, y: 50,
-                               width: splitViewSize.width,height: splitViewSize.height - 100)
-
+                               width: self.frame.size.width,
+                               height: self.frame.size.height - 100)
+            
         } else {
             return false
         }
@@ -128,17 +130,15 @@ extension LayoutEditingView_Type1: LayoutEditingSizeControlProtocol {
         return boundRect.contains(newCenterWillBe)
     }
     
-    func didMove(sizeControl: LayoutEditingSizeControl, delta: CGPoint) {
+    func didMove(sizeControl: WindowScrollViewSizeControl, delta: CGPoint) {
         
         if sizeControl === self.sizeControlAlpha {
             
-            self.splitViewAlpha.update(sizeDelta: CGSize(width: 0, height: delta.y))
-            
-            self.splitViewBeta.update(offsetDelta: CGPoint(x: 0, y: delta.y))
-
-            self.splitViewBeta.update(sizeDelta: CGSize(width: 0, height: -delta.y))
+            grabbableViewAlpha.update(sizeDelta: CGSize(width: 0, height: delta.y))
+            grabbableViewBeta.update(offsetDelta: CGPoint(x: 0, y: delta.y))
+            grabbableViewBeta.update(sizeDelta: CGSize(width: 0, height: -delta.y))
             
         }
     }
 }
-*/
+

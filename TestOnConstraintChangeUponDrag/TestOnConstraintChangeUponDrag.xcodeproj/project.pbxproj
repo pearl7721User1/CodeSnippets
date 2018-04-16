@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE2B37B52083007200FECA46 /* WindowScrollViewSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */; };
 		EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D520786698003233D0 /* AppDelegate.swift */; };
 		EE74F9D820786698003233D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D720786698003233D0 /* ViewController.swift */; };
 		EE74F9DB20786698003233D0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE74F9D920786698003233D0 /* Main.storyboard */; };
@@ -19,11 +20,12 @@
 		EE74F9F7207C57B4003233D0 /* GrabbableWindowScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */; };
 		EE74FA23207E3728003233D0 /* MyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA22207E3728003233D0 /* MyViewController.swift */; };
 		EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */; };
-		EE74FA29207E38A7003233D0 /* LayoutEditingSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */; };
 		EE74FA2B207E3B77003233D0 /* LayoutEditingView_Type1.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */; };
+		EE74FA4B20820670003233D0 /* YourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74FA4A20820670003233D0 /* YourViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowScrollViewSizeControl.swift; sourceTree = "<group>"; };
 		EE74F9D220786698003233D0 /* TestOnConstraintChangeUponDrag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnConstraintChangeUponDrag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE74F9D520786698003233D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE74F9D720786698003233D0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -38,8 +40,8 @@
 		EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrabbableWindowScrollView.swift; sourceTree = "<group>"; };
 		EE74FA22207E3728003233D0 /* MyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyViewController.swift; sourceTree = "<group>"; };
 		EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEditingView_Type1.swift; sourceTree = "<group>"; };
-		EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LayoutEditingSizeControl.swift; sourceTree = "<group>"; };
 		EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LayoutEditingView_Type1.xib; sourceTree = "<group>"; };
+		EE74FA4A20820670003233D0 /* YourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YourViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,12 +78,13 @@
 				EE74F9D520786698003233D0 /* AppDelegate.swift */,
 				EE74F9D720786698003233D0 /* ViewController.swift */,
 				EE74FA22207E3728003233D0 /* MyViewController.swift */,
+				EE74FA4A20820670003233D0 /* YourViewController.swift */,
 				EE74F9F22079D0C4003233D0 /* a.jpg */,
 				EE74F9F42079D0CE003233D0 /* b.jpeg */,
 				EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */,
 				EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */,
-				EE74FA28207E38A7003233D0 /* LayoutEditingSizeControl.swift */,
 				EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */,
+				EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */,
 				EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */,
 				EE74F9D920786698003233D0 /* Main.storyboard */,
 				EE74F9DC20786698003233D0 /* Assets.xcassets */,
@@ -171,7 +174,8 @@
 				EE74F9F7207C57B4003233D0 /* GrabbableWindowScrollView.swift in Sources */,
 				EE74FA23207E3728003233D0 /* MyViewController.swift in Sources */,
 				EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */,
-				EE74FA29207E38A7003233D0 /* LayoutEditingSizeControl.swift in Sources */,
+				EE2B37B52083007200FECA46 /* WindowScrollViewSizeControl.swift in Sources */,
+				EE74FA4B20820670003233D0 /* YourViewController.swift in Sources */,
 				EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */,
 				EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */,
 			);

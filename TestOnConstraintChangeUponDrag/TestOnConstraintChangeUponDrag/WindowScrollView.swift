@@ -116,7 +116,7 @@ class WindowScrollView: UIScrollView {
     // MARK: - Updating View Constraints
     func constraintValues() -> [CGFloat] {
         
-        return [viewTopConstraint.constant, viewLeftConstraint.constant, viewWidthConstraint?.constant ?? 0, viewHeightConstraint?.constant ?? 0]
+        return [viewLeftConstraint.constant, viewTopConstraint.constant, viewWidthConstraint?.constant ?? 0, viewHeightConstraint?.constant ?? 0]
     }
     
     func setConstraintValues(values: [CGFloat]) {
@@ -126,32 +126,30 @@ class WindowScrollView: UIScrollView {
             return
         }
         
-        viewTopConstraint.constant = values[0]
-        viewLeftConstraint.constant = values[1]
+        viewLeftConstraint.constant = values[0]
+        viewTopConstraint.constant = values[1]
         viewWidthConstraint?.constant = values[2]
         viewHeightConstraint?.constant = values[3]
         
-        UIView.animate(withDuration: 1.0) {
-            self.layoutIfNeeded()
-        }
     }
     
-    func setInheritedConstraintValues(top: CGFloat, left: CGFloat, width: CGFloat, height: CGFloat, shouldUpdateCurrentValues isUpdated: Bool) {
-        
-        inheritedViewConstraintValue = [top, left, width, height]
-        
-        if (isUpdated) {
-            viewTopConstraint.constant = top
-            viewLeftConstraint.constant = left
-            viewWidthConstraint?.constant = width
-            viewHeightConstraint?.constant = height
+    func setInheritedConstraintValues(values: [CGFloat], shouldUpdateCurrentValues isUpdated: Bool) {
+
+        guard values.count == 4 else {
+            print("setInheritedConstraintValues wrong values")
+            return
         }
         
+        inheritedViewConstraintValue = [values[0], values[1], values[2], values[3]]
+        
+        if (isUpdated) {
+            setConstraintValues(values:values)
+        }
     }
     
     func resetCurrentConstraintsToInheritedValues() {
-        viewTopConstraint.constant = inheritedViewConstraintValue[0]
-        viewLeftConstraint.constant = inheritedViewConstraintValue[1]
+        viewLeftConstraint.constant = inheritedViewConstraintValue[0]
+        viewTopConstraint.constant = inheritedViewConstraintValue[1]
         viewWidthConstraint?.constant = inheritedViewConstraintValue[2]
         viewHeightConstraint?.constant = inheritedViewConstraintValue[3]
     }
