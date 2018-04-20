@@ -77,6 +77,9 @@ class LayoutEditingView_Type1: UIView {
         grabbableViewBeta.grabDelegate = self
         sizeControlAlpha.delegate = self
         
+        grabbableViewAlpha.sizeControlDrawOption = [.bottom]
+        grabbableViewBeta.sizeControlDrawOption = [.top]
+        
         grabbableViewAlpha.setInheritedConstraintValues(values: [0, 0, self.frame.size.width, self.frame.size.height / 2], shouldUpdateCurrentValues: true)
         grabbableViewAlpha.updateImageViewConstraints()
         
@@ -84,6 +87,8 @@ class LayoutEditingView_Type1: UIView {
         grabbableViewBeta.updateImageViewConstraints()
         
         sizeControlAlpha.setConstraintValues(values: [0, self.frame.size.height / 2 - 15, self.frame.size.width, 30])
+        
+        grabbableViewBeta.updateViewBoundaryLayer()
         
     }
     
@@ -96,10 +101,11 @@ extension LayoutEditingView_Type1: GrabDelegate {
     
     func viewDidMove(grabbableView: GrabbableWindowScrollView, delta: CGPoint) {
         
-        grabbableView.update(offsetDelta: delta)
+        grabbableView.update(offsetDelta: delta, shouldUpdateInheritedConstraints: false)
     }
     
     func viewDidDropped(grabbableView: GrabbableWindowScrollView) {
+        view.sendSubview(toBack: grabbableView)
         grabbableView.resetCurrentConstraintsToInheritedValues()
     }
 }
@@ -134,9 +140,9 @@ extension LayoutEditingView_Type1: WindowScrollViewSizeControlProtocol {
         
         if sizeControl === self.sizeControlAlpha {
             
-            grabbableViewAlpha.update(sizeDelta: CGSize(width: 0, height: delta.y))
-            grabbableViewBeta.update(offsetDelta: CGPoint(x: 0, y: delta.y))
-            grabbableViewBeta.update(sizeDelta: CGSize(width: 0, height: -delta.y))
+            grabbableViewAlpha.update(sizeDelta: CGSize(width: 0, height: delta.y), shouldUpdateInheritedConstraints: true)
+            grabbableViewBeta.update(offsetDelta: CGPoint(x: 0, y: delta.y), shouldUpdateInheritedConstraints: true)
+            grabbableViewBeta.update(sizeDelta: CGSize(width: 0, height: -delta.y), shouldUpdateInheritedConstraints: true)
             
         }
     }

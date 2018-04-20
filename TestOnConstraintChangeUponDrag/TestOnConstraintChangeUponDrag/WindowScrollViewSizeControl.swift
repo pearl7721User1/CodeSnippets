@@ -76,66 +76,6 @@ class WindowScrollViewSizeControl: UIView {
         
     }
     
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-        
-        if let ctx = UIGraphicsGetCurrentContext() {
-            
-            drawEllipse(ctx: ctx, rect: rect)
-            
-            
-        }
-        
-        
-    }
-    
-    private func drawEllipse(ctx: CGContext, rect: CGRect) {
-        
-        ctx.saveGState()
-        
-        ctx.setStrokeColor(UIColor.black.cgColor)
-        ctx.setLineWidth(0.3)
-        ctx.setFillColor(UIColor.blue.cgColor)
-        
-        
-        if (controlType == .horizontal) {
-            
-            let rectWidth = rect.width / 2.0
-            let rectHeight: CGFloat = 20.0
-            let theRect = CGRect(x: rect.midX - rectWidth / 2.0,
-                                 y: rect.midY - rectHeight / 2.0,
-                                 width: rectWidth, height: rectHeight)
-            
-            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
-            ctx.addPath(clipPath)
-            
-            ctx.drawPath(using: .fillStroke)
-        } else if (controlType == .vertical) {
-            
-            let rectWidth: CGFloat = 20.0
-            let rectHeight = rect.height / 2.0
-            let theRect = CGRect(x: rect.midX - rectWidth / 2.0,
-                                 y: rect.midY - rectHeight / 2.0,
-                                 width: rectWidth, height: rectHeight)
-            
-            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
-            ctx.addPath(clipPath)
-            
-            ctx.drawPath(using: .fillStroke)
-            
-        } else {
-            
-            ctx.setStrokeColor(UIColor.clear.cgColor)
-            ctx.setFillColor(UIColor.clear.cgColor)
-            
-            ctx.stroke(rect)
-            ctx.fill(rect)
-        }
-        
-        ctx.restoreGState()
-    }
     
     /**
      Bind the size control's anchors to the given superview's. It is centered off from the given

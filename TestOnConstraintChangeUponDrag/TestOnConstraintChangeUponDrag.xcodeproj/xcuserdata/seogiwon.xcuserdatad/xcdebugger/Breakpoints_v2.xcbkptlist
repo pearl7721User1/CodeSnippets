@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestOnConstraintChangeUponDrag/YourViewController.swift"
-            timestampString = "545577765.008355"
+            timestampString = "545924689.7926199"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "67"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestOnConstraintChangeUponDrag/WindowScrollViewSizeControl.swift"
-            timestampString = "545577765.0084881"
+            timestampString = "545924689.79663"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
             landmarkName = "setConstraintValues(values:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -54,7 +54,7 @@ extension ViewController: GrabDelegate {
     
     func viewDidMove(grabbableView: GrabbableWindowScrollView, delta: CGPoint) {
         
-        grabbableView.update(offsetDelta: delta)
+        grabbableView.update(offsetDelta: delta, shouldUpdateInheritedConstraints: true)
     }
     
     func viewDidDropped(grabbableView: GrabbableWindowScrollView) {

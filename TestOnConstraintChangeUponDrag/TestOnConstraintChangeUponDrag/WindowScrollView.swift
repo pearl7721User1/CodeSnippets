@@ -40,6 +40,8 @@ class WindowScrollView: UIScrollView {
         return image?.scaleAspectFillSize(against: imageFrameSize) ?? CGSize.zero
     }
     
+    var sizeControlDrawOption: SizeControlDrawingOptionOnRectEdge?
+    
     /*
      view hierarchy:
         self(scrollview)
@@ -54,14 +56,28 @@ class WindowScrollView: UIScrollView {
     
     @IBOutlet private(set) weak var viewWidthConstraint: NSLayoutConstraint? {
         didSet {
-            updateImageViewConstraints()            
+            
+            updateImageViewConstraints()
         }
     }
     @IBOutlet private(set) weak var viewHeightConstraint: NSLayoutConstraint? {
-        didSet { updateImageViewConstraints() }
+        didSet {
+            
+            updateImageViewConstraints()
+        }
     }
     @IBOutlet private(set) weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet private(set) weak var viewTopConstraint: NSLayoutConstraint!
+    
+    lazy var boundaryLayer: CALayer = {
+        let layer = CALayer()
+        layer.borderWidth = 3.0
+        layer.borderColor = UIColor.magenta.cgColor
+        self.layer.addSublayer(layer)
+        return layer
+    }()
+    
+    var sizeControlShapeLayer = CAShapeLayer()
     
     
     // MARK: - Initializer
@@ -95,6 +111,130 @@ class WindowScrollView: UIScrollView {
         self.minimumZoomScale = 1.0
         self.maximumZoomScale = 4.0
         self.delegate = self
+    }
+    
+    // MARK: - Draw
+    func updateViewBoundaryLayer() {
+        
+       
+        
+    }
+    
+    func updateSizeControlShapeLayer() {
+        
+        guard let sizeControlDrawOption = self.sizeControlDrawOption else { return }
+        
+        let rect = self.bounds
+        
+        
+        if sizeControlDrawOption.contains(.top) {
+            
+             let rectWidth = rect.width / 2.0
+             let rectHeight: CGFloat = 20.0
+             let theRect = CGRect(x: rect.midX - rectWidth / 2.0,
+             y: rect.minY - rectHeight / 2.0,
+             width: rectWidth, height: rectHeight)
+             
+             let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
+
+            sizeControlShapeLayer.path = clipPath
+            sizeControlShapeLayer.fillColor = UIColor.green.cgColor
+            
+        }
+        
+        
+        if sizeControlShapeLayer.superlayer == nil {
+            self.layer.addSublayer(sizeControlShapeLayer)
+        }
+    }
+    
+    
+    override func draw(_ rect: CGRect) {
+        // Drawing code
+        
+        if let ctx = UIGraphicsGetCurrentContext() {
+            
+            drawEllipse(ctx: ctx, rect: rect)
+            
+        }
+        
+        
+    }
+    
+    private func drawEllipse(ctx: CGContext, rect: CGRect) {
+        
+        ctx.saveGState()
+        
+        ctx.setStrokeColor(UIColor.black.cgColor)
+        ctx.setLineWidth(0.3)
+        ctx.setFillColor(UIColor.blue.cgColor)
+        
+        guard let sizeControlDrawOption = self.sizeControlDrawOption else { return }
+        
+        
+        if sizeControlDrawOption.contains(.left) {
+            
+            let rectWidth: CGFloat = 20.0
+            let rectHeight = rect.height / 2.0
+            let theRect = CGRect(x: rect.minX - rectWidth / 2.0,
+                                 y: rect.midY - rectHeight / 2.0,
+                                 width: rectWidth, height: rectHeight)
+            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
+            ctx.addPath(clipPath)
+            
+            ctx.drawPath(using: .fillStroke)
+            
+        }
+        
+        if sizeControlDrawOption.contains(.right) {
+            
+            let rectWidth: CGFloat = 20.0
+            let rectHeight = rect.height / 2.0
+            let theRect = CGRect(x: rect.maxX - rectWidth / 2.0,
+                                 y: rect.midY - rectHeight / 2.0,
+                                 width: rectWidth, height: rectHeight)
+            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
+            ctx.addPath(clipPath)
+            
+            ctx.drawPath(using: .fillStroke)
+            
+        }
+        
+        if sizeControlDrawOption.contains(.top) {
+            /*
+            let rectWidth = rect.width / 2.0
+            let rectHeight: CGFloat = 20.0
+            let theRect = CGRect(x: rect.midX - rectWidth / 2.0,
+                                 y: rect.minY - rectHeight / 2.0,
+                                 width: rectWidth, height: rectHeight)
+            
+            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
+            ctx.addPath(clipPath)
+            
+            ctx.drawPath(using: .fillStroke)
+ */
+            ctx.setStrokeColor(UIColor.magenta.cgColor)
+            ctx.setLineWidth(3.0)
+            ctx.stroke(rect)
+            
+        }
+        
+        if sizeControlDrawOption.contains(.bottom) {
+            
+            let rectWidth = rect.width / 2.0
+            let rectHeight: CGFloat = 20.0
+            let theRect = CGRect(x: rect.midX - rectWidth / 2.0,
+                                 y: rect.maxY - rectHeight / 2.0,
+                                 width: rectWidth, height: rectHeight)
+            
+            let clipPath: CGPath = UIBezierPath(roundedRect: theRect, cornerRadius: 10).cgPath
+            ctx.addPath(clipPath)
+            
+            ctx.drawPath(using: .fillStroke)
+            
+        }
+        
+        ctx.restoreGState()
     }
     
     
@@ -155,20 +295,43 @@ class WindowScrollView: UIScrollView {
     }
     
     /// WindowScrollView updates its position by given CGPoint value
-    func update(offsetDelta: CGPoint) {
+    func update(offsetDelta: CGPoint, shouldUpdateInheritedConstraints isUpdated: Bool) {
         
         viewLeftConstraint.constant += offsetDelta.x
         viewTopConstraint.constant += offsetDelta.y
         
+        if (isUpdated) {
+            inheritedViewConstraintValue[0] = viewLeftConstraint.constant
+            inheritedViewConstraintValue[1] = viewTopConstraint.constant
+        }
+        
+//        updateViewBoundaryLayer()
+//        updateSizeControlShapeLayer()
     }
     
     /// WindowScrollView updates its size by given CGSize value
-    func update(sizeDelta: CGSize) {
+    func update(sizeDelta: CGSize, shouldUpdateInheritedConstraints isUpdated: Bool) {
+        
+        
+        
+        CATransaction.begin()
+        CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
+        boundaryLayer.frame.size = CGSize(width: self.bounds.size.width + sizeDelta.width, height: self.bounds.size.height + sizeDelta.height)
+        CATransaction.commit()
+        
+        
         
         viewWidthConstraint!.constant += sizeDelta.width
         viewHeightConstraint!.constant += sizeDelta.height
         
-        updateImageViewConstraints()
+        if (isUpdated) {
+            inheritedViewConstraintValue[2] = viewWidthConstraint!.constant
+            inheritedViewConstraintValue[3] = viewHeightConstraint!.constant
+        }
+        
+//        updateImageViewConstraints()
+//        updateViewBoundaryLayer()
+//        updateSizeControlShapeLayer()
     }
     
     
@@ -203,6 +366,7 @@ class WindowScrollView: UIScrollView {
         
         imageViewWidthConstraint.constant = imageSizeAsContentAspectFill.width + 0.25
         imageViewHeightConstraint.constant = imageSizeAsContentAspectFill.height + 0.25
+        
         
     }
     
