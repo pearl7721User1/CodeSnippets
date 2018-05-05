@@ -69,6 +69,14 @@ class WindowScrollView: UIScrollView {
     @IBOutlet private(set) weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet private(set) weak var viewTopConstraint: NSLayoutConstraint!
     
+    lazy var overlayView: UIView = {
+        let view = UIView()
+        view.layer.borderWidth = 1.0
+        view.layer.borderColor = UIColor.red.cgColor
+        return view
+    }()
+    
+    /*
     lazy var boundaryLayer: CALayer = {
         let layer = CALayer()
         layer.borderWidth = 3.0
@@ -78,7 +86,7 @@ class WindowScrollView: UIScrollView {
     }()
     
     var sizeControlShapeLayer = CAShapeLayer()
-    
+    */
     
     // MARK: - Initializer
     init() {
@@ -101,6 +109,13 @@ class WindowScrollView: UIScrollView {
         
         configureView()
         setupImageViewConstraints()
+        
+        self.addSubview(overlayView)
+        overlayView.translatesAutoresizingMaskIntoConstraints = false
+        overlayView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+        overlayView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+        overlayView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        overlayView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
     
     private func configureView() {
@@ -112,7 +127,7 @@ class WindowScrollView: UIScrollView {
         self.maximumZoomScale = 4.0
         self.delegate = self
     }
-    
+    /*
     // MARK: - Draw
     func updateViewBoundaryLayer() {
         
@@ -147,7 +162,7 @@ class WindowScrollView: UIScrollView {
             self.layer.addSublayer(sizeControlShapeLayer)
         }
     }
-    
+ 
     
     override func draw(_ rect: CGRect) {
         // Drawing code
@@ -160,6 +175,7 @@ class WindowScrollView: UIScrollView {
         
         
     }
+ 
     
     private func drawEllipse(ctx: CGContext, rect: CGRect) {
         
@@ -236,7 +252,7 @@ class WindowScrollView: UIScrollView {
         
         ctx.restoreGState()
     }
-    
+    */
     
     // MARK: - Setting View Constraints
     /// WindowScrollView installs constraints by itself by calling this function.
@@ -313,12 +329,12 @@ class WindowScrollView: UIScrollView {
     func update(sizeDelta: CGSize, shouldUpdateInheritedConstraints isUpdated: Bool) {
         
         
-        
+        /*
         CATransaction.begin()
         CATransaction.setValue(kCFBooleanTrue, forKey: kCATransactionDisableActions)
         boundaryLayer.frame.size = CGSize(width: self.bounds.size.width + sizeDelta.width, height: self.bounds.size.height + sizeDelta.height)
         CATransaction.commit()
-        
+        */
         
         
         viewWidthConstraint!.constant += sizeDelta.width
@@ -329,7 +345,7 @@ class WindowScrollView: UIScrollView {
             inheritedViewConstraintValue[3] = viewHeightConstraint!.constant
         }
         
-//        updateImageViewConstraints()
+        updateImageViewConstraints()
 //        updateViewBoundaryLayer()
 //        updateSizeControlShapeLayer()
     }

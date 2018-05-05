@@ -88,7 +88,7 @@ class LayoutEditingView_Type1: UIView {
         
         sizeControlAlpha.setConstraintValues(values: [0, self.frame.size.height / 2 - 15, self.frame.size.width, 30])
         
-        grabbableViewBeta.updateViewBoundaryLayer()
+//        grabbableViewBeta.updateViewBoundaryLayer()
         
     }
     
