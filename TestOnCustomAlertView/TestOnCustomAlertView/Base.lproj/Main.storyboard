@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestOnCustomAlertView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmF-Ja-JDA">
+                                <rect key="frame" x="153" y="197" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oPV-0M-FN5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkw-B2-Qpb">
+                                <rect key="frame" x="87" y="47" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="alertControllerBtnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Acg-Rm-fUH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--Custom Alert View Controller-->
+        <scene sceneID="LJi-Va-dlj">
+            <objects>
+                <viewController storyboardIdentifier="CustomAlertViewController" id="E3e-3a-xgY" customClass="CustomAlertViewController" customModule="TestOnCustomAlertView" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="fdg-he-0F8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xh3-QS-ZFZ">
+                                <rect key="frame" x="87" y="183.5" width="200" height="300"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eIH-SP-Ce0">
+                                        <rect key="frame" x="0.0" y="181.5" width="200" height="0.5"/>
+                                        <color key="backgroundColor" white="0.90313042534722221" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="2eh-9R-qAf"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="eIH-SP-Ce0" firstAttribute="leading" secondItem="Xh3-QS-ZFZ" secondAttribute="leading" id="88Q-Ke-gcc"/>
+                                    <constraint firstAttribute="height" constant="300" id="9S2-Jt-ctE"/>
+                                    <constraint firstAttribute="trailing" secondItem="eIH-SP-Ce0" secondAttribute="trailing" id="Fzz-LO-Fxx"/>
+                                    <constraint firstAttribute="width" constant="200" id="H0U-D1-Wbe"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2IA-D4-wcl">
+                                <rect key="frame" x="164" y="428" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="dismissButtonTapped:" destination="E3e-3a-xgY" eventType="touchUpInside" id="dzA-hw-Mxy"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.1955265410958904" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Xh3-QS-ZFZ" firstAttribute="centerX" secondItem="fdg-he-0F8" secondAttribute="centerX" id="0II-Hv-79r"/>
+                            <constraint firstItem="2IA-D4-wcl" firstAttribute="leading" secondItem="Xh3-QS-ZFZ" secondAttribute="trailing" constant="-123" id="Dnr-rB-Eo5"/>
+                            <constraint firstItem="Xh3-QS-ZFZ" firstAttribute="centerY" secondItem="fdg-he-0F8" secondAttribute="centerY" id="NXr-vJ-Qgi"/>
+                            <constraint firstItem="2IA-D4-wcl" firstAttribute="top" secondItem="eIH-SP-Ce0" secondAttribute="bottom" constant="62" id="jSW-Hv-cPa"/>
+                            <constraint firstItem="2IA-D4-wcl" firstAttribute="top" secondItem="Xh3-QS-ZFZ" secondAttribute="bottom" constant="-55.5" id="nXR-ks-a7i"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9GN-1V-fUf"/>
+                    </view>
+                    <connections>
+                        <outlet property="alertView" destination="Xh3-QS-ZFZ" id="yUg-qc-rqU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="biC-wT-NpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1448.8" y="32.833583208395808"/>
+        </scene>
+    </scenes>
+</document>

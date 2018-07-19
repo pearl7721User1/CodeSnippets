@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol WindowScrollViewOverlaySelectionProtocol {
+    func didSelect(view: WindowScrollView)
+}
+
 @IBDesignable
 class WindowScrollView: UIScrollView {
     
@@ -42,11 +46,7 @@ class WindowScrollView: UIScrollView {
     
     var sizeControlDrawOption: SizeControlDrawingOptionOnRectEdge?
     
-    /*
-     view hierarchy:
-        self(scrollview)
-                            - imageView
-    */
+    
     fileprivate var imageView = UIImageView()
     
     private var imageViewWidthConstraint = NSLayoutConstraint()
@@ -69,24 +69,51 @@ class WindowScrollView: UIScrollView {
     @IBOutlet private(set) weak var viewLeftConstraint: NSLayoutConstraint!
     @IBOutlet private(set) weak var viewTopConstraint: NSLayoutConstraint!
     
-    lazy var overlayView: UIView = {
-        let view = UIView()
-        view.layer.borderWidth = 1.0
-        view.layer.borderColor = UIColor.red.cgColor
+    // MARK: - OverlayView
+    var overlaySelectionDelegate: WindowScrollViewOverlaySelectionProtocol?
+    
+    var selected = false {
+        didSet {
+            overlayView.layer.borderWidth = selected ? 1.0 : 0.0
+            
+            if selected {
+                overlaySelectionDelegate?.didSelect(view: self)
+            }
+        }
+    }
+    
+    private lazy var overlayView: WindowScrollViewOverlayView = {
+        let view = WindowScrollViewOverlayView()
         return view
     }()
     
-    /*
-    lazy var boundaryLayer: CALayer = {
-        let layer = CALayer()
-        layer.borderWidth = 3.0
-        layer.borderColor = UIColor.magenta.cgColor
-        self.layer.addSublayer(layer)
-        return layer
-    }()
+    @objc func selectOrDeselectOverlayView() {
+        selected = (selected == true) ? false : true
+    }
     
-    var sizeControlShapeLayer = CAShapeLayer()
-    */
+    func deselectView() {
+        selected = false
+    }
+    
+    private func addTapGesture() {
+        let tg = UITapGestureRecognizer(target: self, action: #selector(selectOrDeselectOverlayView))
+        self.addGestureRecognizer(tg)
+        
+    }
+    
+    override func didMoveToSuperview() {
+        if overlayView.superview == nil, let superview = self.superview {
+            
+            superview.addSubview(overlayView)
+            overlayView.translatesAutoresizingMaskIntoConstraints = false
+            overlayView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
+            overlayView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
+            overlayView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+            overlayView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+            
+        }
+    }
+    
     
     // MARK: - Initializer
     init() {
@@ -109,14 +136,10 @@ class WindowScrollView: UIScrollView {
         
         configureView()
         setupImageViewConstraints()
+        addTapGesture()
         
-        self.addSubview(overlayView)
-        overlayView.translatesAutoresizingMaskIntoConstraints = false
-        overlayView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        overlayView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        overlayView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        overlayView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
     }
+    
     
     private func configureView() {
         
@@ -127,6 +150,8 @@ class WindowScrollView: UIScrollView {
         self.maximumZoomScale = 4.0
         self.delegate = self
     }
+    
+    
     /*
     // MARK: - Draw
     func updateViewBoundaryLayer() {
@@ -253,6 +278,8 @@ class WindowScrollView: UIScrollView {
         ctx.restoreGState()
     }
     */
+    
+    
     
     // MARK: - Setting View Constraints
     /// WindowScrollView installs constraints by itself by calling this function.

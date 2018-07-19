@@ -75,6 +75,11 @@ class LayoutEditingView_Type1: UIView {
         
         grabbableViewAlpha.grabDelegate = self
         grabbableViewBeta.grabDelegate = self
+        
+        grabbableViewAlpha.overlaySelectionDelegate = self
+        grabbableViewBeta.overlaySelectionDelegate = self
+        
+        
         sizeControlAlpha.delegate = self
         
         grabbableViewAlpha.sizeControlDrawOption = [.bottom]
@@ -88,10 +93,21 @@ class LayoutEditingView_Type1: UIView {
         
         sizeControlAlpha.setConstraintValues(values: [0, self.frame.size.height / 2 - 15, self.frame.size.width, 30])
         
-//        grabbableViewBeta.updateViewBoundaryLayer()
-        
     }
     
+}
+
+extension LayoutEditingView_Type1: WindowScrollViewOverlaySelectionProtocol {
+    func didSelect(view: WindowScrollView) {
+        
+        if grabbableViewAlpha !== view {
+            grabbableViewAlpha.deselectView()
+        }
+        
+        if grabbableViewBeta !== view {
+            grabbableViewBeta.deselectView()
+        }
+    }
 }
 
 extension LayoutEditingView_Type1: GrabDelegate {

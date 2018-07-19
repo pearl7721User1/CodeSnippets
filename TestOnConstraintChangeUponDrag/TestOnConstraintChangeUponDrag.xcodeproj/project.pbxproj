@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE14041F20ADB00100F28735 /* WindowScrollViewOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE14041E20ADB00100F28735 /* WindowScrollViewOverlayView.swift */; };
 		EE2B37B52083007200FECA46 /* WindowScrollViewSizeControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */; };
 		EE2B37D9208A0C2D00FECA46 /* SizeControlDrawingOptionOnRectEdge.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2B37D8208A0C2D00FECA46 /* SizeControlDrawingOptionOnRectEdge.swift */; };
 		EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE74F9D520786698003233D0 /* AppDelegate.swift */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE14041E20ADB00100F28735 /* WindowScrollViewOverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowScrollViewOverlayView.swift; sourceTree = "<group>"; };
 		EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowScrollViewSizeControl.swift; sourceTree = "<group>"; };
 		EE2B37D8208A0C2D00FECA46 /* SizeControlDrawingOptionOnRectEdge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SizeControlDrawingOptionOnRectEdge.swift; path = ../../TestOnOptionSet/TestOnOptionSet/SizeControlDrawingOptionOnRectEdge.swift; sourceTree = "<group>"; };
 		EE74F9D220786698003233D0 /* TestOnConstraintChangeUponDrag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestOnConstraintChangeUponDrag.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +88,7 @@
 				EE74FA24207E3853003233D0 /* LayoutEditingView_Type1.swift */,
 				EE74FA2A207E3B77003233D0 /* LayoutEditingView_Type1.xib */,
 				EE74F9E92079CBF5003233D0 /* WindowScrollView.swift */,
+				EE14041E20ADB00100F28735 /* WindowScrollViewOverlayView.swift */,
 				EE2B37D8208A0C2D00FECA46 /* SizeControlDrawingOptionOnRectEdge.swift */,
 				EE2B37B42083007200FECA46 /* WindowScrollViewSizeControl.swift */,
 				EE74F9F6207C57B4003233D0 /* GrabbableWindowScrollView.swift */,
@@ -178,6 +181,7 @@
 				EE74FA23207E3728003233D0 /* MyViewController.swift in Sources */,
 				EE74F9D620786698003233D0 /* AppDelegate.swift in Sources */,
 				EE2B37B52083007200FECA46 /* WindowScrollViewSizeControl.swift in Sources */,
+				EE14041F20ADB00100F28735 /* WindowScrollViewOverlayView.swift in Sources */,
 				EE74FA4B20820670003233D0 /* YourViewController.swift in Sources */,
 				EE74F9EF2079CFC5003233D0 /* WindowScrollView.swift in Sources */,
 				EE74FA25207E3854003233D0 /* LayoutEditingView_Type1.swift in Sources */,
