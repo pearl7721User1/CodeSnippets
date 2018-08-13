@@ -18,34 +18,9 @@ class RedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-/*
-        
-        let view5 = UIView(frame: CGRect(x: 100, y: 100, width: 170, height: 100))
-//        view5.backgroundColor = UIColor.blue
-        
-        view5.layer.contents = UIImage(named: "img1.jpeg")?.cgImage
-        view5.contentMode = .scaleAspectFit
-        self.view.addSubview(view5)
-*/
-        
-        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    @IBAction func animateBtnTapped(_ sender: UIBarButtonItem) {
-        
-        if let myNavigationController = self.navigationController as? MyNavigationController {
-            
-            myNavigationController.performTransitionToBlueViewController(from: self, with: transitionInfo())
-        }
-    }
-    
-    private func transitionInfo() -> MyTransitionInfo {
+    func transitionInfo() -> MyTransitionInfo {
         
         let fromFrame1 = imgView.frame
         let fromFrame2 = imgView2.frame

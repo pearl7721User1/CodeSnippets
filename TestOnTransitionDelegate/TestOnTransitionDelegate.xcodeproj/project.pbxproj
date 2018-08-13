@@ -14,13 +14,15 @@
 		EE21D83920F96F9C00CA8C71 /* MyNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D83820F96F9C00CA8C71 /* MyNavigationController.swift */; };
 		EE21D83B20F96FB700CA8C71 /* RedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D83A20F96FB700CA8C71 /* RedViewController.swift */; };
 		EE21D83D20F96FC000CA8C71 /* BlueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D83C20F96FC000CA8C71 /* BlueViewController.swift */; };
-		EE21D83F20F9755200CA8C71 /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D83E20F9755200CA8C71 /* AnimationController.swift */; };
+		EE21D83F20F9755200CA8C71 /* AnimatedPushPopController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D83E20F9755200CA8C71 /* AnimatedPushPopController.swift */; };
 		EE21D84320F977D500CA8C71 /* img3.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EE21D84020F977D500CA8C71 /* img3.jpeg */; };
 		EE21D84420F977D500CA8C71 /* img1.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EE21D84120F977D500CA8C71 /* img1.jpeg */; };
 		EE21D84520F977D500CA8C71 /* img2.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = EE21D84220F977D500CA8C71 /* img2.jpeg */; };
 		EE21D84720F977E300CA8C71 /* img4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = EE21D84620F977E200CA8C71 /* img4.jpg */; };
 		EE21D84920FB25CF00CA8C71 /* MyTransitionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D84820FB25CF00CA8C71 /* MyTransitionInfo.swift */; };
-		EE21D84C20FF70DA00CA8C71 /* DismissAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D84B20FF70DA00CA8C71 /* DismissAnimationController.swift */; };
+		EE21D84E2101FAD200CA8C71 /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D84D2101FAD200CA8C71 /* LaunchViewController.swift */; };
+		EE21D8502103361C00CA8C71 /* GreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D84F2103361C00CA8C71 /* GreenViewController.swift */; };
+		EE21D85221033AA700CA8C71 /* AnimatedPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE21D85121033AA700CA8C71 /* AnimatedPresentationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,13 +35,15 @@
 		EE21D83820F96F9C00CA8C71 /* MyNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNavigationController.swift; sourceTree = "<group>"; };
 		EE21D83A20F96FB700CA8C71 /* RedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedViewController.swift; sourceTree = "<group>"; };
 		EE21D83C20F96FC000CA8C71 /* BlueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueViewController.swift; sourceTree = "<group>"; };
-		EE21D83E20F9755200CA8C71 /* AnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
+		EE21D83E20F9755200CA8C71 /* AnimatedPushPopController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPushPopController.swift; sourceTree = "<group>"; };
 		EE21D84020F977D500CA8C71 /* img3.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img3.jpeg; sourceTree = "<group>"; };
 		EE21D84120F977D500CA8C71 /* img1.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img1.jpeg; sourceTree = "<group>"; };
 		EE21D84220F977D500CA8C71 /* img2.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img2.jpeg; sourceTree = "<group>"; };
 		EE21D84620F977E200CA8C71 /* img4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img4.jpg; sourceTree = "<group>"; };
 		EE21D84820FB25CF00CA8C71 /* MyTransitionInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTransitionInfo.swift; sourceTree = "<group>"; };
-		EE21D84B20FF70DA00CA8C71 /* DismissAnimationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissAnimationController.swift; sourceTree = "<group>"; };
+		EE21D84D2101FAD200CA8C71 /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		EE21D84F2103361C00CA8C71 /* GreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreenViewController.swift; sourceTree = "<group>"; };
+		EE21D85121033AA700CA8C71 /* AnimatedPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedPresentationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 				EE21D82D20F8C99100CA8C71 /* Assets.xcassets */,
 				EE21D82F20F8C99100CA8C71 /* LaunchScreen.storyboard */,
 				EE21D83220F8C99200CA8C71 /* Info.plist */,
+				EE21D84D2101FAD200CA8C71 /* LaunchViewController.swift */,
 				EE21D83820F96F9C00CA8C71 /* MyNavigationController.swift */,
 				EE21D83A20F96FB700CA8C71 /* RedViewController.swift */,
 				EE21D83C20F96FC000CA8C71 /* BlueViewController.swift */,
@@ -86,6 +91,7 @@
 				EE21D84220F977D500CA8C71 /* img2.jpeg */,
 				EE21D84020F977D500CA8C71 /* img3.jpeg */,
 				EE21D84620F977E200CA8C71 /* img4.jpg */,
+				EE21D84F2103361C00CA8C71 /* GreenViewController.swift */,
 			);
 			path = TestOnTransitionDelegate;
 			sourceTree = "<group>";
@@ -93,8 +99,8 @@
 		EE21D84A20FF70B300CA8C71 /* Animator */ = {
 			isa = PBXGroup;
 			children = (
-				EE21D83E20F9755200CA8C71 /* AnimationController.swift */,
-				EE21D84B20FF70DA00CA8C71 /* DismissAnimationController.swift */,
+				EE21D83E20F9755200CA8C71 /* AnimatedPushPopController.swift */,
+				EE21D85121033AA700CA8C71 /* AnimatedPresentationController.swift */,
 			);
 			path = Animator;
 			sourceTree = "<group>";
@@ -179,9 +185,11 @@
 				EE21D83920F96F9C00CA8C71 /* MyNavigationController.swift in Sources */,
 				EE21D84920FB25CF00CA8C71 /* MyTransitionInfo.swift in Sources */,
 				EE21D83D20F96FC000CA8C71 /* BlueViewController.swift in Sources */,
+				EE21D8502103361C00CA8C71 /* GreenViewController.swift in Sources */,
 				EE21D82720F8C99100CA8C71 /* AppDelegate.swift in Sources */,
-				EE21D84C20FF70DA00CA8C71 /* DismissAnimationController.swift in Sources */,
-				EE21D83F20F9755200CA8C71 /* AnimationController.swift in Sources */,
+				EE21D84E2101FAD200CA8C71 /* LaunchViewController.swift in Sources */,
+				EE21D85221033AA700CA8C71 /* AnimatedPresentationController.swift in Sources */,
+				EE21D83F20F9755200CA8C71 /* AnimatedPushPopController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

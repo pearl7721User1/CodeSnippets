@@ -1,15 +1,15 @@
 //
-//  DismissAnimationController.swift
+//  AnimationController.swift
 //  TestOnTransitionDelegate
 //
-//  Created by SeoGiwon on 18/07/2018.
+//  Created by SeoGiwon on 14/07/2018.
 //  Copyright © 2018 SeoGiwon. All rights reserved.
 //
 
 import UIKit
 
-class DismissAnimationController: NSObject, UIViewControllerAnimatedTransitioning {
-    
+class AnimatedPushPopController: NSObject, UIViewControllerAnimatedTransitioning {
+
     var transitionInfo: MyTransitionInfo?
     
     func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
@@ -18,11 +18,13 @@ class DismissAnimationController: NSObject, UIViewControllerAnimatedTransitionin
     
     func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         
-        guard let toView = transitionContext.view(forKey: UITransitionContextViewKey.to),
-            let fromView = transitionContext.view(forKey: UITransitionContextViewKey.from) else {
-                
-                fatalError("UITransitionContextViewKey.to for springUpAnimator is unavailable")
+        guard let toView = transitionContext.view(forKey: .to),
+            let fromView = transitionContext.view(forKey: .from) else {
+            
+            fatalError("UITransitionContextViewKey.to for springUpAnimator is unavailable")
         }
+        
+        let presenting = isPresenting(using: transitionContext)
         
         /*
          containerView:
@@ -34,16 +36,14 @@ class DismissAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         let containerView = transitionContext.containerView
         // fromView is the subview of the containerView at this point
         
-        let s = containerView.subviews
-        
         
         guard let transitionInfo = transitionInfo,
             transitionInfo.views.count == transitionInfo.fromFrames.count,
             transitionInfo.fromFrames.count == transitionInfo.toFrames.count else {
-                fatalError()
+            fatalError()
         }
         
-        let theDuplicateView = duplicateView(from: fromView, for: transitionInfo)
+        let theDuplicateView = duplicateView(from: fromView, for: transitionInfo, isPresenting: presenting)
         containerView.addSubview(theDuplicateView)
         
         UIView.animate(withDuration: transitionDuration(using: transitionContext), delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
@@ -51,7 +51,7 @@ class DismissAnimationController: NSObject, UIViewControllerAnimatedTransitionin
             // animate subviews of the copycat view
             for (i, subview) in theDuplicateView.subviews.enumerated() {
                 
-                subview.frame = transitionInfo.toFrames[i]
+                subview.frame = presenting ? transitionInfo.toFrames[i] : transitionInfo.fromFrames[i]
                 subview.clipsToBounds = true
                 subview.contentMode = .scaleAspectFill
             }
@@ -60,19 +60,38 @@ class DismissAnimationController: NSObject, UIViewControllerAnimatedTransitionin
         }, completion: { (finished) in
             
             theDuplicateView.removeFromSuperview()
-            containerView.addSubview(toView)
+            
+            if (presenting) {
+                containerView.addSubview(toView)
+            } else {
+                fromView.removeFromSuperview()
+                containerView.addSubview(toView)
+            }
+            
             transitionContext.completeTransition(finished)
         })
         
     }
     
-    private func duplicateView(from view: UIView, for transitionInfo: MyTransitionInfo) -> UIView {
+    private func isPresenting(using transitionContext: UIViewControllerContextTransitioning) -> Bool {
+        
+        guard let fromViewController = transitionContext.viewController(forKey: .from) else {
+            fatalError()
+        }
+        
+        if fromViewController.isKind(of: RedViewController.self) {
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    private func duplicateView(from view: UIView, for transitionInfo: MyTransitionInfo, isPresenting: Bool) -> UIView {
         let duplicateView = UIView(frame: view.frame)
-        duplicateView.backgroundColor = view.backgroundColor
-        duplicateView.alpha = view.alpha
+        duplicateView.backgroundColor = UIColor.white
         
         let subviews = transitionInfo.views
-        let fromFrames = transitionInfo.fromFrames
+        let fromFrames = isPresenting ? transitionInfo.fromFrames : transitionInfo.toFrames
         
         for (i, subview) in subviews.enumerated() {
             

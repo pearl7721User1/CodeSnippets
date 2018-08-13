@@ -8,10 +8,10 @@
 
 import UIKit
 
-class MyNavigationController: UINavigationController, UINavigationControllerDelegate {
-
-    var animator = AnimationController()
-    var dismissAnimator = DismissAnimationController()
+class MyNavigationController: UINavigationController, UINavigationControllerDelegate, UIViewControllerTransitioningDelegate {
+    
+    
+    var animator = AnimatedPushPopController()
     
     lazy var blueViewController: BlueViewController = {
        
@@ -20,6 +20,17 @@ class MyNavigationController: UINavigationController, UINavigationControllerDele
         return vc
     }()
     
+    lazy var greenViewController: GreenViewController = {
+        
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "GreenViewController") as! GreenViewController
+        
+        vc.modalPresentationStyle = .custom
+        vc.transitioningDelegate = self
+        
+        return vc
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,22 +38,25 @@ class MyNavigationController: UINavigationController, UINavigationControllerDele
         self.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func performTransitionToBlueViewController() {
+        
+        if let topViewController = self.topViewController as? RedViewController {
+            animator.transitionInfo = topViewController.transitionInfo()
+            self.pushViewController(blueViewController, animated: true)
+        }
     }
     
-    func performTransitionToBlueViewController(from viewController: UIViewController, with transitionInfo: MyTransitionInfo) {
-        // set
-        animator.transitionInfo = transitionInfo
-        self.pushViewController(blueViewController, animated: true)
+    func performDismissToRedViewController() {
+        
+        if let topViewController = self.topViewController as? BlueViewController {
+            self.popViewController(animated: true)
+        }
         
     }
     
-    func performDismiss(from viewController: UIViewController, with transitionInfo: MyTransitionInfo) {
+    func performPresentGreenViewController() {
         
-        dismissAnimator.transitionInfo = transitionInfo
-        self.popViewController(animated: true)
+        self.present(greenViewController, animated: true, completion: nil)
     }
     
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -53,22 +67,34 @@ class MyNavigationController: UINavigationController, UINavigationControllerDele
         }
         
         if (operation == .pop) && ((toVC as? RedViewController) != nil) {
-            return dismissAnimator
+            return animator
         }
         
         return nil
     }
-    
-    
-
     /*
-    // MARK: - Navigation
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
+        
+    }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        
     }
     */
-
+    
+    func presentationController(forPresented presented: UIViewController,
+                                presenting: UIViewController?,
+                                source: UIViewController) -> UIPresentationController? {
+        
+        if let topViewController = self.topViewController as? RedViewController {
+            
+            return AnimatedPresentationController(presentedViewController: greenViewController, presenting: topViewController)
+        } else {
+            return nil
+        }
+        
+        
+    }
+    
 }
