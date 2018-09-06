@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestsOnMultipleGestures" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmh-DY-g9P" customClass="MyView" customModule="TestsOnMultipleGestures" customModuleProvider="target">
+                                <rect key="frame" x="67" y="187" width="240" height="293"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="293" id="Kfz-Zw-Cy4"/>
+                                    <constraint firstAttribute="width" constant="240" id="y1I-lt-J6y"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Jik-mM-xpr" appends="YES" id="SL0-lD-gAN"/>
+                                    <outletCollection property="gestureRecognizers" destination="ing-ZU-ZDY" appends="YES" id="dS4-OM-tp4"/>
+                                    <outletCollection property="gestureRecognizers" destination="9PX-Au-dTr" appends="YES" id="EEN-9h-Dt2"/>
+                                </connections>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="utc-qj-mog">
+                                <rect key="frame" x="67" y="34" width="52" height="30"/>
+                                <state key="normal" title="Button1"/>
+                                <connections>
+                                    <action selector="button1Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="P1h-id-HGf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CHk-0V-fjr">
+                                <rect key="frame" x="252" y="34" width="55" height="30"/>
+                                <state key="normal" title="Button2"/>
+                                <connections>
+                                    <action selector="button2Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Aw-IP-m5e"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="utc-qj-mog" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="67" id="C2S-Ja-0ub"/>
+                            <constraint firstItem="Rmh-DY-g9P" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eks-Xq-RwL"/>
+                            <constraint firstItem="CHk-0V-fjr" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="Zj8-Gw-h5X"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="CHk-0V-fjr" secondAttribute="trailing" constant="68" id="c1w-a6-B2i"/>
+                            <constraint firstItem="Rmh-DY-g9P" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="oP8-fM-4qg"/>
+                            <constraint firstItem="utc-qj-mog" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="14" id="pFk-uK-ZxL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="theView" destination="Rmh-DY-g9P" id="eB1-xx-2mw"/>
+                        <outlet property="viewHeightConstraint" destination="Kfz-Zw-Cy4" id="0Zb-8w-Whc"/>
+                        <outlet property="viewWidthConstraint" destination="y1I-lt-J6y" id="Ywv-Ok-wb6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Jik-mM-xpr">
+                    <connections>
+                        <action selector="pan:" destination="BYZ-38-t0r" id="Z2k-kC-f5W"/>
+                    </connections>
+                </panGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="ing-ZU-ZDY">
+                    <connections>
+                        <action selector="longPress:" destination="BYZ-38-t0r" id="j2x-al-RvW"/>
+                    </connections>
+                </pongPressGestureRecognizer>
+                <tapGestureRecognizer id="9PX-Au-dTr">
+                    <connections>
+                        <action selector="tap:" destination="BYZ-38-t0r" id="QAp-zA-wLC"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+    </scenes>
+</document>
