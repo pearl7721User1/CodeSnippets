@@ -15,7 +15,7 @@ class PileCollectionView: UIView {
     
     var leadingConstantMax: CGFloat {
         
-        return CGFloat((pileViews.count-1)*magicNumber)
+        return -CGFloat((pileViews.count-1)*magicNumber)
     }
     
     let pileViewColors = [UIColor(hue: 0.0, saturation: 0.5, brightness: 0.8, alpha: 1.0),
@@ -54,11 +54,11 @@ class PileCollectionView: UIView {
             return (false, CGPoint.zero)
         }
         
-        var constant = firstPileView.leadingConstraintConstant()
+        let constant = firstPileView.leadingConstraintConstant()
         
-        if constant < 0 {
+        if constant > 0 {
             return (false, CGPoint(x: -constant, y: 0)) // compensation value
-        } else if constant > leadingConstantMax {
+        } else if constant < leadingConstantMax {
             return (false, CGPoint(x: leadingConstantMax - constant, y: 0))
         } else {
             return (true, CGPoint.zero)
@@ -74,7 +74,7 @@ class PileCollectionView: UIView {
         pileView.backgroundColor = pileViewColors[colorIndex]
         self.addSubview(pileView)
 
-        pileView.setupConstraints(leadingView: bottomPileView, constant: CGFloat(magicNumber), superView: self)
+        pileView.setupConstraints(leadingView: bottomPileView, constant: bottomPileView != nil ?CGFloat(magicNumber) : 0, superView: self)
     }
     
     func popPile() {
@@ -113,22 +113,13 @@ class PileCollectionView: UIView {
             
             
             let validConstraintsTuple = isValidConstraintsValue()
-            
-            print("x:\(validConstraintsTuple.1.x)")
-            
             if !isValidConstraintsValue().0 {
                 
-                let abc = isValidConstraintsValue().1
                 bottomMostPileView.translate(translation: isValidConstraintsValue().1)
                 
                 UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: [], animations: {
-                    
-                }, completion: { (finished) in
                     self.layoutIfNeeded()
-                })
-                
-                
-                
+                }, completion: nil)
             }
         }
         

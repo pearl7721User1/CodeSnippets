@@ -18,6 +18,7 @@ class ViewController3: UIViewController {
         
         pileCollectionView.pushPile()
         pileCollectionView.pushPile()
+        pileCollectionView.pushPile()
         
     }
 
