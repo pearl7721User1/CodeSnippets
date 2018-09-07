@@ -8,12 +8,14 @@
 
 import UIKit
 
+
+
 class PileCollectionView: UIView {
 
     
     let magicNumber = 50
     
-    var leadingConstantMax: CGFloat {
+    var topConstantMax: CGFloat {
         
         return -CGFloat((pileViews.count-1)*magicNumber)
     }
@@ -54,12 +56,12 @@ class PileCollectionView: UIView {
             return (false, CGPoint.zero)
         }
         
-        let constant = firstPileView.leadingConstraintConstant()
+        let constant = firstPileView.topConstraintConstant()
         
         if constant > 0 {
-            return (false, CGPoint(x: -constant, y: 0)) // compensation value
-        } else if constant < leadingConstantMax {
-            return (false, CGPoint(x: leadingConstantMax - constant, y: 0))
+            return (false, CGPoint(x: 0, y: -constant)) // compensation value
+        } else if constant < topConstantMax {
+            return (false, CGPoint(x: 0, y: topConstantMax - constant))
         } else {
             return (true, CGPoint.zero)
         }
@@ -74,7 +76,7 @@ class PileCollectionView: UIView {
         pileView.backgroundColor = pileViewColors[colorIndex]
         self.addSubview(pileView)
 
-        pileView.setupConstraints(leadingView: bottomPileView, constant: bottomPileView != nil ?CGFloat(magicNumber) : 0, superView: self)
+        pileView.setupConstraints(topView: bottomPileView, constant: bottomPileView != nil ?CGFloat(magicNumber) : 0, superView: self)
     }
     
     func popPile() {
@@ -113,9 +115,9 @@ class PileCollectionView: UIView {
             
             
             let validConstraintsTuple = isValidConstraintsValue()
-            if !isValidConstraintsValue().0 {
+            if !validConstraintsTuple.0 {
                 
-                bottomMostPileView.translate(translation: isValidConstraintsValue().1)
+                bottomMostPileView.translate(translation: validConstraintsTuple.1)
                 
                 UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: [], animations: {
                     self.layoutIfNeeded()

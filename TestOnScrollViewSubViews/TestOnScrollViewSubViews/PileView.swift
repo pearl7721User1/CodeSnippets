@@ -10,7 +10,7 @@ import UIKit
 
 class PileView: UIView {
 
-    var leadingConstraint: NSLayoutConstraint!
+    var topConstraint: NSLayoutConstraint!
     
     var savedConstant: CGFloat = 0.0
     
@@ -26,56 +26,56 @@ class PileView: UIView {
         fatalError()
     }
     
-    func setupConstraints(leadingView:UIView?, constant:CGFloat, superView:UIView) {
+    func setupConstraints(topView:UIView?, constant:CGFloat, superView:UIView) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
-        // set leading constraint
-        leadingConstraint = self.leadingAnchor.constraint(equalTo: leadingView != nil ? leadingView!.leadingAnchor : superView.leadingAnchor, constant: constant)
-        leadingConstraint.isActive = true
+        // set top constraint
+        topConstraint = self.topAnchor.constraint(equalTo: topView != nil ? topView!.topAnchor : superView.topAnchor, constant: constant)
+        topConstraint.isActive = true
         
-        // set width constraint
-        self.widthAnchor.constraint(equalTo: superView.widthAnchor).isActive = true
+        // set height constraint
+        self.heightAnchor.constraint(equalTo: superView.heightAnchor).isActive = true
         
-        // set top, bottom constraint
-        self.topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
+        // set leading, trailing constraint
+        self.leadingAnchor.constraint(equalTo: superView.leadingAnchor).isActive = true
+        self.trailingAnchor.constraint(equalTo: superView.trailingAnchor).isActive = true
     }
     
-    func leadingConstraintConstant() -> CGFloat {
-        return self.leadingConstraint.constant
+    func topConstraintConstant() -> CGFloat {
+        return self.topConstraint.constant
     }
     
     func translate(translation: CGPoint) {
         
         
-        print("\(self.hash), prev:\(leadingConstraint.constant)")
+        print("\(self.hash), prev:\(topConstraint.constant)")
         
-        leadingConstraint.constant = leadingConstraint.constant + translation.x
+        topConstraint.constant = topConstraint.constant + translation.y
         print("\(self.hash), translation.x:\(translation.x)")
-        print("\(self.hash), next:\(leadingConstraint.constant)")
+        print("\(self.hash), next:\(topConstraint.constant)")
         
     }
     
     func pick() {
-        save(constant: leadingConstraint.constant)
-        leadingConstraint.constant = 0
+        save(constant: topConstraint.constant)
+        topConstraint.constant = 0
     }
     
     func dissolve() {
-        leadingConstraint.constant = self.bounds.width - 5
+        topConstraint.constant = self.bounds.width - 5
     }
     
     func reset() {
-        leadingConstraint.constant = loadConstant()
+        topConstraint.constant = loadConstant()
     }
     
     func oneStepOut() {
-        leadingConstraint.constant = leadingConstraint.constant + 50
+        topConstraint.constant = topConstraint.constant + 50
     }
     
     func oneStepIn() {
-        leadingConstraint.constant = leadingConstraint.constant - 50
+        topConstraint.constant = topConstraint.constant - 50
     }
     
     func save(constant: CGFloat) {
