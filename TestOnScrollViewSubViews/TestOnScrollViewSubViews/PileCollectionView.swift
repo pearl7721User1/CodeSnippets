@@ -66,12 +66,15 @@ class PileCollectionView: UIView {
     }
     
     func pushPile() {
+        
+        let bottomPileView = pileViews.last
+        
         let pileView = PileView()
         let colorIndex = pileViews.count % pileViewColors.count
         pileView.backgroundColor = pileViewColors[colorIndex]
         self.addSubview(pileView)
-        
-        pileView.setupConstraintsToSuperView(leadingConstant: CGFloat(magicNumber * (pileViews.count-1)))
+
+        pileView.setupConstraints(leadingView: bottomPileView, constant: CGFloat(magicNumber), superView: self)
     }
     
     func popPile() {
@@ -95,14 +98,17 @@ class PileCollectionView: UIView {
         let translation = gestureRecognizer.translation(in: gestureRecognizer.view)
         gestureRecognizer.setTranslation(CGPoint.zero, in: gestureRecognizer.view)
         
-//        print("x:\(translation.x),y: \(translation.y)")
-        
-        
+        guard let bottomMostPileView = pileViews.first else {
+            return
+        }
+            
+            
         
         if [UIGestureRecognizerState.began, UIGestureRecognizerState.changed].contains(gestureRecognizer.state) {
-            for (_, v) in pileViews.enumerated() {
-                v.translate(translation: translation)
-            }
+            
+            bottomMostPileView.translate(translation: translation)
+            layoutIfNeeded()
+            
         } else {
             
             
@@ -111,13 +117,17 @@ class PileCollectionView: UIView {
             print("x:\(validConstraintsTuple.1.x)")
             
             if !isValidConstraintsValue().0 {
-                for (_, v) in pileViews.enumerated() {
+                
+                let abc = isValidConstraintsValue().1
+                bottomMostPileView.translate(translation: isValidConstraintsValue().1)
+                
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.9, options: [], animations: {
                     
-                    let abc = isValidConstraintsValue().1
-                    
-                    
-                    v.translate(translation: isValidConstraintsValue().1)
-                }
+                }, completion: { (finished) in
+                    self.layoutIfNeeded()
+                })
+                
+                
                 
             }
         }

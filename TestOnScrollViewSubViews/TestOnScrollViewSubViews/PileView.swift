@@ -26,25 +26,20 @@ class PileView: UIView {
         fatalError()
     }
     
-    func setupConstraintsToSuperView(leadingConstant: CGFloat) {
-        
-        guard let superview = self.superview else {
-            return
-        }
+    func setupConstraints(leadingView:UIView?, constant:CGFloat, superView:UIView) {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         
         // set leading constraint
-        leadingConstraint = NSLayoutConstraint(item:self, attribute: .leading, relatedBy: .equal, toItem: superview, attribute: .leading, multiplier: 1.0, constant: leadingConstant)
-        
+        leadingConstraint = self.leadingAnchor.constraint(equalTo: leadingView != nil ? leadingView!.leadingAnchor : superView.leadingAnchor, constant: constant)
         leadingConstraint.isActive = true
         
         // set width constraint
-        self.widthAnchor.constraint(equalTo: superview.widthAnchor).isActive = true
+        self.widthAnchor.constraint(equalTo: superView.widthAnchor).isActive = true
         
         // set top, bottom constraint
-        self.topAnchor.constraint(equalTo: superview.topAnchor).isActive = true
-        self.bottomAnchor.constraint(equalTo: superview.bottomAnchor).isActive = true
+        self.topAnchor.constraint(equalTo: superView.topAnchor).isActive = true
+        self.bottomAnchor.constraint(equalTo: superView.bottomAnchor).isActive = true
     }
     
     func leadingConstraintConstant() -> CGFloat {
