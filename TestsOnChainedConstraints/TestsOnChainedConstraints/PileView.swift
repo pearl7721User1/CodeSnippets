@@ -24,8 +24,10 @@ class PileView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
 //        updateShadowOnTop()
-        updateRoundCorners()
+//        updateRoundCorners()
     }
+    
+    
     
     private func updateRoundCorners() {
         let maskLayer = CAShapeLayer()
@@ -108,3 +110,26 @@ class PileView: UIView {
         return savedConstant
     }
 }
+
+extension PileView {
+    
+    convenience init(labelText: String) {
+        self.init(frame: CGRect.zero)
+        setupLabel(text: labelText)
+    }
+    
+    fileprivate func setupLabel(text: String) {
+        let label = UILabel()
+        label.text = text
+        label.textColor = UIColor.white
+        
+        self.addSubview(label)
+        
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
+        label.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
+        label.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
+        label.heightAnchor.constraint(equalToConstant: 50).isActive = true
+    }
+}
+
