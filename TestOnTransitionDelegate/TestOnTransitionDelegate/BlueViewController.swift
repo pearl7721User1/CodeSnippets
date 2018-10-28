@@ -15,4 +15,11 @@ class BlueViewController: UIViewController {
     @IBOutlet weak var imgView3: UIImageView!
     @IBOutlet weak var imgView4: UIImageView!
     
+    override func viewDidLoad() {
+        print("viewDidLoad")
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear")
+    }
 }

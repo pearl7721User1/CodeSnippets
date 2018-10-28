@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="XwR-1B-Vx5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,58 +18,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X7Z-qI-y8v" customClass="MyView" customModule="TestOnMultiColorShadow" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="78" width="375" height="589"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Tcq-du-hdE">
-                                        <rect key="frame" x="112" y="70" width="150" height="150"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="150" id="FWp-Hr-8Nv"/>
-                                            <constraint firstAttribute="height" constant="150" id="cSV-uF-nqZ"/>
-                                        </constraints>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SS-of-9c6">
-                                        <rect key="frame" x="26" y="543" width="30" height="30"/>
-                                        <state key="normal" title="btn1"/>
-                                        <connections>
-                                            <action selector="btn1Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jux-DB-RaQ"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsm-V9-ACd">
-                                        <rect key="frame" x="111" y="543" width="32" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="btn2"/>
-                                        <connections>
-                                            <action selector="btn2Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Hl-9n-5HK"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstItem="Tcq-du-hdE" firstAttribute="centerX" secondItem="X7Z-qI-y8v" secondAttribute="centerX" id="7qv-qL-7ie"/>
-                                    <constraint firstAttribute="bottom" secondItem="0SS-of-9c6" secondAttribute="bottom" constant="16" id="B7V-Wr-2aT"/>
-                                    <constraint firstItem="0SS-of-9c6" firstAttribute="leading" secondItem="X7Z-qI-y8v" secondAttribute="leading" constant="26" id="pIn-VH-RNd"/>
-                                    <constraint firstItem="Tcq-du-hdE" firstAttribute="top" secondItem="X7Z-qI-y8v" secondAttribute="top" constant="70" id="yM0-rv-XuF"/>
-                                </constraints>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lPu-VG-1W6">
+                                <rect key="frame" x="54" y="536" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
                                 <connections>
-                                    <outlet property="imgView" destination="Tcq-du-hdE" id="2jB-ab-kcY"/>
-                                    <outlet property="imgViewHeightConstraint" destination="cSV-uF-nqZ" id="ZSC-ao-uyb"/>
-                                    <outlet property="imgViewWidthConstraint" destination="FWp-Hr-8Nv" id="N6v-v8-KYf"/>
+                                    <action selector="btn1Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gqY-WK-cOG"/>
                                 </connections>
-                            </view>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NVY-V9-uiD">
+                                <rect key="frame" x="240" y="536" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="btn2Tapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="akc-Ya-BuF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstItem="X7Z-qI-y8v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="58" id="2WX-hP-vvt"/>
-                            <constraint firstItem="X7Z-qI-y8v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="DmL-bG-uXq"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="X7Z-qI-y8v" secondAttribute="trailing" id="IhR-0y-OCg"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="X7Z-qI-y8v" secondAttribute="bottom" id="cVv-Eh-PEz"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <connections>
-                        <outlet property="myView" destination="X7Z-qI-y8v" id="9sk-Hb-uED"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -127,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zm8-9b-Fu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="760.79999999999995" y="26.53673163418291"/>
+            <point key="canvasLocation" x="993" y="27"/>
         </scene>
     </scenes>
     <resources>

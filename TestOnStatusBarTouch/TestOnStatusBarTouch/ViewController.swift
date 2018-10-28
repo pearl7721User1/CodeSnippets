@@ -10,29 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    let theView = MyView()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        NotificationCenter.default.addObserver(self, selector: #selector(statusBarTapped), name: Notification.Name(rawValue: "statusBarTappedNotification"), object: nil)
         
         
+        
+        self.view.addSubview(theView)
     }
     
-    @objc func statusBarTapped() {
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         
+        theView.frame = self.view.bounds
     }
-
-    @IBAction func tap(_ sender: UITapGestureRecognizer) {
-        
-        
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
 
 }
 

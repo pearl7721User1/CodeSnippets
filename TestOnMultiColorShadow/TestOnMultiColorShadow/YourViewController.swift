@@ -31,7 +31,7 @@ class YourViewController: UIViewController {
     
     @IBAction func rightBtnTapped(_ sender: UIButton) {
         visualEffectView.isHidden = false
-        bgImgView.isHidden = true
+        bgImgView.isHidden = false
     }
     /*
     // MARK: - Navigation

@@ -9,24 +9,34 @@
 import UIKit
 
 class MyView: UIView {
-
-    @IBOutlet weak var imgView: UIImageView!
     
-    @IBOutlet weak var imgViewWidthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var imgViewHeightConstraint: NSLayoutConstraint!
+    var image: UIImage! {
+        didSet {
+            setupSubviews()
+        }
+    }
+    private var bgImageLayer: CALayer?
+    private var overlayImageLayer: CALayer?
+    private var visualEffectView: UIVisualEffectView?
     
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
     
-    func activateImgView(activated: Bool) {
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private func setupSubviews() {
+        bgImageLayer = CALayer()
+        bgImageLayer?.contents = image.cgImage
         
-        imgViewWidthConstraint.constant = activated ? 250 : 150
-        imgViewWidthConstraint.constant = activated ? 250 : 150
+        overlayImageLayer = CALayer()
+        overlayImageLayer?.contents = image.cgImage
         
-        UIView.animate(withDuration: 0.3, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.8, options: [], animations: {
-            self.layoutIfNeeded()
-        }, completion: nil)
+        visualEffectView = UIVisualEffectView()
         
         
     }
-    
     
 }
