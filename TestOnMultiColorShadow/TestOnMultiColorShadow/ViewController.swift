@@ -28,8 +28,7 @@ class ViewController: UIViewController {
         self.view.layer.addSublayer(layer)
         self.view.clipsToBounds = false
         
-        
-        visualEffectView.frame = CGRect(x: 50, y: 50, width: 200, height: 200)
+        visualEffectView.frame = CGRect(x: 30, y: 30, width: 210, height: 300)
         self.view.addSubview(visualEffectView)
         
         layer2.contents = img2?.cgImage
