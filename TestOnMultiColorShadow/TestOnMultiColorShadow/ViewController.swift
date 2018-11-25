@@ -43,6 +43,7 @@ class ViewController: UIViewController {
     @IBAction func btn1Tapped(_ sender: UIButton) {
         layer2.transform = CATransform3DScale(CATransform3DIdentity, 0.5, 0.5, 0.5)
         visualEffectView.isHidden = true
+        layer.isHidden = true
         
     }
     
