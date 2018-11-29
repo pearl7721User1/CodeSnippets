@@ -11,10 +11,10 @@ import Photos
 
 struct MomentsClusterDataSourceElement {
     
-    let phCollectionList: PHCollectionList
-    var phAssets = [PHAsset]()
+    var phCollectionList: PHCollectionList
+    var phAssets: [PHAsset]
     
-    static func MomentsClusterDataSourceElement(of phCollectionList: PHCollectionList, from allPHAssets: [PHAsset]) -> MomentsClusterDataSourceElement? {
+    init?(phCollectionList: PHCollectionList, allPHAssets: PHFetchResult<PHAsset>) {
         
         guard let startDate = phCollectionList.startDate,
             let endDate = phCollectionList.endDate else {
@@ -22,19 +22,21 @@ struct MomentsClusterDataSourceElement {
         }
         
         // filter
-        let filteredPHAssets = allPHAssets.filter { (phAsset: PHAsset) -> Bool in
+        // enumerate over fetchResult
+        
+        var dstPHAssets = [PHAsset]()
+        
+        allPHAssets.enumerateObjects({ (asset, index, stop) in
             
-            if let creationDate = phAsset.creationDate {
-                
+            if let creationDate = asset.creationDate {
                 if creationDate < endDate && creationDate > startDate {
-                    return true
+                    dstPHAssets.append(asset)
                 }
             }
-            
-            return false
-        }
+        })
         
-        let theStructure = MomentsClusterDataSourceElement(of: phCollectionList, from: allPHAssets)
-        return theStructure
+        self.phCollectionList = phCollectionList
+        self.phAssets = dstPHAssets
     }
+    
 }

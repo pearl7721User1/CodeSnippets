@@ -16,7 +16,7 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
     
     private func createDataSource() {
         
-        // fetch all moments PHAssetCollections
+        // fetch all moments cluster PHCollection Lists, resulting in feeding allPHCollectionLists
         let startDateFetchOption: PHFetchOptions = {
             
             let options = PHFetchOptions()
@@ -24,13 +24,31 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
             return options
         }()        
         
-        // fetch all moments cluster PHCollection Lists
-        let clusterCollectionListsFetchResult: PHFetchResult<PHCollectionList> = PHCollectionList.fetchMomentLists(with: .momentListCluster, options: startDateFetchOption)
+        allPHCollectionLists = PHCollectionList.fetchMomentLists(with: .momentListCluster, options: startDateFetchOption)
         
+        
+        // if allMomentsFetchResult exist, iterate over all the elements of allPHCollectionLists,
+        // take each PHCollectionList and allMomentsFetchResult as parameters to produce a MomentsClusterDataSourceElement instance, resulting in producing an array of
+        // MomentsClusterDataSourceElement to use it as the section, row of this collection view
+        self.dataSource = [MomentsClusterDataSourceElement]()
+        if let allMomentsPHAssets = allMomentsProvider?.allMomentsFetchResult {
+            
+            allPHCollectionLists?.enumerateObjects({ (list, index, stop) in
+                
+                if let element = MomentsClusterDataSourceElement(phCollectionList: list, allPHAssets: allMomentsPHAssets) {
+                    self.dataSource!.append(element)
+                }
+                
+            })
+        }
     }
     
     // collection view for displaying the asset thumbnails
     @IBOutlet weak var collectionView: MomentsCommonCollectionView!
+    
+    var allMomentsProvider: AllMomentsProvider? {
+        return (self.navigationController as! MomentsClusterNavigationController).allMomentsProvider
+    }
     
     // MARK: - View Cycle
     override func viewDidLoad() {
@@ -39,13 +57,8 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
         collectionView.collectionViewType = .MomentsCluster
 
         // fetch all moments
-        if let momentsClusterNavigationController = self.navigationController as? MomentsClusterNavigationController {
-            
-            momentsClusterNavigationController.initAllMomentsProvider()
-        }
-        
+        (self.navigationController as! MomentsClusterNavigationController).initAllMomentsProvider()
         self.createDataSource()
-        
         
     }
     
