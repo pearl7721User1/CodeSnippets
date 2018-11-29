@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		EE0081CB21AECC9A00DCC7FC /* MomentsDataSourceElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0081CA21AECC9A00DCC7FC /* MomentsDataSourceElement.swift */; };
 		EE5F5C3921476498008C2CD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C3821476498008C2CD3 /* AppDelegate.swift */; };
 		EE5F5C3E21476498008C2CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5C3C21476498008C2CD3 /* Main.storyboard */; };
 		EE5F5C4021476498008C2CD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5C3F21476498008C2CD3 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		EE0081CA21AECC9A00DCC7FC /* MomentsDataSourceElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsDataSourceElement.swift; sourceTree = "<group>"; };
 		EE5F5C3521476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestsOnPhotosContentOffsetDecisionInCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5F5C3821476498008C2CD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5F5C3D21476498008C2CD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +53,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EE0081CC21AECC9F00DCC7FC /* CustomDataSource */ = {
+			isa = PBXGroup;
+			children = (
+				EE0081CA21AECC9A00DCC7FC /* MomentsDataSourceElement.swift */,
+			);
+			path = CustomDataSource;
+			sourceTree = "<group>";
+		};
 		EE5F5C2C21476498008C2CD3 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 		EE5F5C3721476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				EE0081CC21AECC9F00DCC7FC /* CustomDataSource */,
 				EE5F5C4E214765F1008C2CD3 /* ViewForPermissionUnavailable.swift */,
 				EE5F5C3821476498008C2CD3 /* AppDelegate.swift */,
 				EE5F5C542147723B008C2CD3 /* GridViewCell.swift */,
@@ -169,6 +180,7 @@
 				EE5F5C5721477744008C2CD3 /* PopupViewController.swift in Sources */,
 				EE5F5C5121476B17008C2CD3 /* MomentsViewController+FetchPHAssets.swift in Sources */,
 				EE5F5C552147723B008C2CD3 /* GridViewCell.swift in Sources */,
+				EE0081CB21AECC9A00DCC7FC /* MomentsDataSourceElement.swift in Sources */,
 				EE5F5C4B2147652B008C2CD3 /* MomentsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

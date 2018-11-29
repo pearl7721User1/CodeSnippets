@@ -12,7 +12,7 @@
 		EE00819121AA4AD600DCC7FC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE00818F21AA4AD600DCC7FC /* Main.storyboard */; };
 		EE00819321AA4AD600DCC7FC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE00819221AA4AD600DCC7FC /* Assets.xcassets */; };
 		EE00819621AA4AD600DCC7FC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE00819421AA4AD600DCC7FC /* LaunchScreen.storyboard */; };
-		EE00819E21AA4B2700DCC7FC /* MyCALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00819D21AA4B2600DCC7FC /* MyCALayer.swift */; };
+		EE0081A021AA4C2200DCC7FC /* MyCALayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE00819F21AA4C2200DCC7FC /* MyCALayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +23,7 @@
 		EE00819221AA4AD600DCC7FC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EE00819521AA4AD600DCC7FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EE00819721AA4AD600DCC7FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EE00819D21AA4B2600DCC7FC /* MyCALayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MyCALayer.swift; path = ../../TestOnCAShapeLayer/TestOnCAShapeLayer/MyCALayer.swift; sourceTree = "<group>"; };
+		EE00819F21AA4C2200DCC7FC /* MyCALayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCALayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				EE00818B21AA4AD600DCC7FC /* AppDelegate.swift */,
 				EE00818D21AA4AD600DCC7FC /* ViewController.swift */,
-				EE00819D21AA4B2600DCC7FC /* MyCALayer.swift */,
 				EE00818F21AA4AD600DCC7FC /* Main.storyboard */,
 				EE00819221AA4AD600DCC7FC /* Assets.xcassets */,
 				EE00819421AA4AD600DCC7FC /* LaunchScreen.storyboard */,
 				EE00819721AA4AD600DCC7FC /* Info.plist */,
+				EE00819F21AA4C2200DCC7FC /* MyCALayer.swift */,
 			);
 			path = TestsOnCustomCAProperty;
 			sourceTree = "<group>";
@@ -140,7 +140,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE00818E21AA4AD600DCC7FC /* ViewController.swift in Sources */,
-				EE00819E21AA4B2700DCC7FC /* MyCALayer.swift in Sources */,
+				EE0081A021AA4C2200DCC7FC /* MyCALayer.swift in Sources */,
 				EE00818C21AA4AD600DCC7FC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
