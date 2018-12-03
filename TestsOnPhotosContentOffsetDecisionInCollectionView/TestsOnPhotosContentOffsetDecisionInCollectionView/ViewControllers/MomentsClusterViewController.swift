@@ -13,6 +13,7 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
     
     private var dataSource: [MomentsClusterDataSourceElement]?
     private var allPHCollectionLists: PHFetchResult<PHCollectionList>?
+    private var imageCache = NSCache<NSString, UIImage>()
     
     private func createDataSource() {
         
@@ -55,6 +56,7 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         
         collectionView.collectionViewType = .MomentsCluster
+        collectionView.prefetchDataSource = self
 
         // fetch all moments
         (self.navigationController as! MomentsClusterNavigationController).initAllMomentsProvider()
@@ -70,13 +72,29 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: String(describing: GridViewCell.self), for: indexPath) as? GridViewCell else { fatalError("failed to dequeue GridViewCell") }
         
-        cell.backgroundColor = UIColor.red
-        /*
-        guard allMomentsFetchResult != nil,
-            momentsViewHelper != nil,
-            let phAsset = momentsViewHelper!.phAsset(from: indexPath, in: allMomentsFetchResult!)else {
-                return cell
+        if let dataSource = dataSource {
+            let phAsset = dataSource[indexPath.section].phAssets[indexPath.row]
+            
+            if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
+                cell.thumbnailImage = image
+                print("cached")
+            } else {
+                
+                print("NOT")
+                cell.representedAssetIdentifier = phAsset.localIdentifier
+                PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+                    
+                    // The cell may have been recycled by the time this handler gets called;
+                    // set the cell's thumbnail image only if it's still showing the same asset.
+                    if cell.representedAssetIdentifier == phAsset.localIdentifier {
+                        cell.thumbnailImage = image
+                    }
+                })
+            }
         }
+        
+        
+        /*
         
         cell.representedAssetIdentifier = phAsset.localIdentifier
         
@@ -97,11 +115,20 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        
+        if let dataSource = dataSource {
+            return dataSource[section].phAssets.count ?? 0
+        } else {
+            return 0
+        }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 3
+        if let dataSource = dataSource {
+            return dataSource.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -116,25 +143,17 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
                                                                              for: indexPath)
             let label = headerView.viewWithTag(10) as! UILabel
             
-            /*
-            var text: String {
-                if let list = allMomentsCollectionFetchResult?.object(at: indexPath.section),
-                    let startDate = list.startDate,
-                    let endDate = list.endDate {
-                    
-                    let f = DateFormatter()
-                    f.dateStyle = .medium
-                    f.timeStyle = .medium
-                    
-                    return "\(f.string(from: startDate)) - \(f.string(from:endDate))"
-                } else {
-                    return ""
-                }
+            if let dataSource = dataSource,
+                let startDate = dataSource[indexPath.section].phCollectionList.startDate,
+            let endDate = dataSource[indexPath.section].phCollectionList.endDate {
+                
+                let f = DateFormatter()
+                f.dateStyle = .medium
+                f.timeStyle = .medium
+                
+                label.text = "\(f.string(from: startDate)) - \(f.string(from:endDate))"
+                
             }
-            
-            label.text = text
-            */
-            
             
             return headerView
             
@@ -142,6 +161,34 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
             
             fatalError("Unexpected element kind")
         }
+    }
+    
+}
+
+
+extension MomentsClusterViewController: UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+        if let dataSource = dataSource {
+            
+            for indexPath in indexPaths {
+                let phAsset = dataSource[indexPath.section].phAssets[indexPath.row]
+                
+                if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
+                    // do nothing
+                } else {
+                    // create cache
+                    PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+                        
+                        if let image = image {
+                            self.imageCache.setObject(image, forKey: phAsset.localIdentifier as NSString)
+                        }
+                    })
+                }
+                
+            }
+        }
+        
     }
     
 }

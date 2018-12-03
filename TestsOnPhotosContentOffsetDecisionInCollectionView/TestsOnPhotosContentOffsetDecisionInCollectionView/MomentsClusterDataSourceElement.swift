@@ -31,6 +31,8 @@ struct MomentsClusterDataSourceElement {
             if let creationDate = asset.creationDate {
                 if creationDate < endDate && creationDate > startDate {
                     dstPHAssets.append(asset)
+                } else if creationDate == endDate {
+                    dstPHAssets.append(asset)
                 }
             }
         })
