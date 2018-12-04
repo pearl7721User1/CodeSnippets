@@ -56,11 +56,30 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
         super.viewDidLoad()
         
         collectionView.collectionViewType = .MomentsCluster
-        collectionView.prefetchDataSource = self
 
         // fetch all moments
         (self.navigationController as! MomentsClusterNavigationController).initAllMomentsProvider()
         self.createDataSource()
+        
+        // create cache
+        let requestOptions = PHImageRequestOptions()
+        requestOptions.deliveryMode = .opportunistic
+        requestOptions.resizeMode = .fast
+        requestOptions.isSynchronous = true
+        
+        // iterate data source
+        for dataSourceElement in dataSource! {
+            for phasset in dataSourceElement.phAssets {
+                
+                PHImageManager().requestImage(for: phasset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: requestOptions, resultHandler: { image, _ in
+                    
+                    if let image = image {
+                        self.imageCache.setObject(image, forKey: phasset.localIdentifier as NSString)
+                    }
+                })
+            }
+        }
+        
         
     }
     
@@ -77,10 +96,10 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
             
             if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
                 cell.thumbnailImage = image
-//                print("cached")
+                print("cached")
             } else {
                 
-//                print("NOT")
+                print("NOT")
                 cell.representedAssetIdentifier = phAsset.localIdentifier
                 PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
                     
@@ -166,41 +185,3 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
 }
 
 
-extension MomentsClusterViewController: UICollectionViewDataSourcePrefetching {
-    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        
-        if let dataSource = dataSource {
-            
-            print("prefetch")
-            
-            for indexPath in indexPaths {
-                let phAsset = dataSource[indexPath.section].phAssets[indexPath.row]
-                
-//                print("indexPath:\(indexPath.section), \(indexPath.row)")
-                
-                if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
-                    // do nothing
-                } else {
-                    // create cache
-                    
-                    print("indexPath:\(indexPath.section), \(indexPath.row)")
-                    
-                    
-                    let requestOptions = PHImageRequestOptions()
-                    requestOptions.deliveryMode = .opportunistic
-                    requestOptions.resizeMode = .fast
-                    
-                    PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: requestOptions, resultHandler: { image, _ in
-                        
-                        if let image = image {
-                            self.imageCache.setObject(image, forKey: phAsset.localIdentifier as NSString)
-                        }
-                    })
-                }
-                
-            }
-        }
-        
-    }
-    
-}
