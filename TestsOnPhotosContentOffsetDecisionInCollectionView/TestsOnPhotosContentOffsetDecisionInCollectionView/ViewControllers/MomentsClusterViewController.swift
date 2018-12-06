@@ -77,10 +77,10 @@ class MomentsClusterViewController: UIViewController, UICollectionViewDataSource
             
             if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
                 cell.thumbnailImage = image
-                print("cached")
+//                print("cached")
             } else {
                 
-                print("NOT")
+//                print("NOT")
                 cell.representedAssetIdentifier = phAsset.localIdentifier
                 PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
                     
@@ -171,14 +171,26 @@ extension MomentsClusterViewController: UICollectionViewDataSourcePrefetching {
         
         if let dataSource = dataSource {
             
+            print("prefetch")
+            
             for indexPath in indexPaths {
                 let phAsset = dataSource[indexPath.section].phAssets[indexPath.row]
+                
+//                print("indexPath:\(indexPath.section), \(indexPath.row)")
                 
                 if let image = imageCache.object(forKey: phAsset.localIdentifier as NSString) {
                     // do nothing
                 } else {
                     // create cache
-                    PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: nil, resultHandler: { image, _ in
+                    
+                    print("indexPath:\(indexPath.section), \(indexPath.row)")
+                    
+                    
+                    let requestOptions = PHImageRequestOptions()
+                    requestOptions.deliveryMode = .opportunistic
+                    requestOptions.resizeMode = .fast
+                    
+                    PHImageManager().requestImage(for: phAsset, targetSize: self.collectionView.thumbnailSize(), contentMode: .aspectFill, options: requestOptions, resultHandler: { image, _ in
                         
                         if let image = image {
                             self.imageCache.setObject(image, forKey: phAsset.localIdentifier as NSString)
