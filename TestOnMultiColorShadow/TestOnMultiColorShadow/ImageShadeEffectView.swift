@@ -39,7 +39,7 @@ class ImageShadeEffectView: UIView {
         super.layoutSubviews()
         
         imgBackgroundLayer.frame = self.bounds
-        imgLayer.frame = self.bounds
+        imgLayer.frame = self.bounds.insetBy(dx: 0.5, dy: 0.5)
         
         visualEffectView.frame = self.bounds.insetBy(dx: -100, dy: -100)
 
@@ -56,18 +56,14 @@ class ImageShadeEffectView: UIView {
     
     func function1() {
         imgLayer.transform = CATransform3DScale(CATransform3DIdentity, scaleAnimationFactor, scaleAnimationFactor, scaleAnimationFactor)
+        imgBackgroundLayer.transform = CATransform3DScale(CATransform3DIdentity, scaleAnimationFactor, scaleAnimationFactor, scaleAnimationFactor)
         visualEffectView.isHidden = true
-        imgBackgroundLayer.isHidden = true
-
     }
 
     func function2() {
         imgLayer.transform = CATransform3DIdentity
+        imgBackgroundLayer.transform = CATransform3DIdentity
         visualEffectView.isHidden = false
-        imgBackgroundLayer.isHidden = false
 
-        
-        visualEffectView.frame = self.bounds
-        visualEffectView.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
     }
 }

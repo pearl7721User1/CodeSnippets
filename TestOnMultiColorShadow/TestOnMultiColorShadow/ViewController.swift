@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     var layer2 = CALayer()
     var visualEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
     
-    @IBOutlet weak var myView: MyView!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

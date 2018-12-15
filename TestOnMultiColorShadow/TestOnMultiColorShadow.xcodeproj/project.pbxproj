@@ -63,7 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				EE6DEDB8210495B700992FFE /* AppDelegate.swift */,
-				EE6DEDBA210495B700992FFE /* ViewController.swift */,
+				BE3AD4EF219E715500B06C70 /* HisViewController.swift */,
 				BE3AD4ED219D0B6E00B06C70 /* ImageShadeEffectView.swift */,
 				EE6DEDBC210495B700992FFE /* Main.storyboard */,
 				EE6DEDCA2104965900992FFE /* img.jpg */,
@@ -71,7 +71,7 @@
 				EE6DEDC1210495B700992FFE /* LaunchScreen.storyboard */,
 				EE6DEDC4210495B700992FFE /* Info.plist */,
 				EE6DEDCE21049F3B00992FFE /* YourViewController.swift */,
-				BE3AD4EF219E715500B06C70 /* HisViewController.swift */,
+				EE6DEDBA210495B700992FFE /* ViewController.swift */,
 			);
 			path = TestOnMultiColorShadow;
 			sourceTree = "<group>";
