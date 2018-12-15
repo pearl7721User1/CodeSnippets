@@ -16,9 +16,6 @@ protocol MomentsScrollToPosition {
 
 class MomentsViewController: UIViewController, UICollectionViewDataSource, MomentsScrollToPosition {
 
-    // to off-screen the collection view if Photos permission is unavailable
-    var theViewForUnavailablePermission = ViewForPermissionUnavailable()
-    
     // to set the collection view's focus to the last item for the first time only
     var viewDidLayoutSubviewsForTheFirstTime = true
     

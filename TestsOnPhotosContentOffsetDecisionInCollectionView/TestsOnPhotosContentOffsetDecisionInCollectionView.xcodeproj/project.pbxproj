@@ -10,27 +10,37 @@
 		BEF5C53821AF6616007A72F5 /* MomentsClusterDataSourceElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF5C53721AF6616007A72F5 /* MomentsClusterDataSourceElement.swift */; };
 		BEF5C56021AFC22B007A72F5 /* MomentsClusterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF5C55F21AFC22B007A72F5 /* MomentsClusterViewController.swift */; };
 		BEF5C56321AFC3A0007A72F5 /* MomentsClusterNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF5C56221AFC3A0007A72F5 /* MomentsClusterNavigationController.swift */; };
-		BEF5C56521AFD1A9007A72F5 /* AllMomentsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF5C56421AFD1A9007A72F5 /* AllMomentsProvider.swift */; };
 		EE5F5C3921476498008C2CD3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C3821476498008C2CD3 /* AppDelegate.swift */; };
 		EE5F5C3E21476498008C2CD3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5C3C21476498008C2CD3 /* Main.storyboard */; };
 		EE5F5C4021476498008C2CD3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5C3F21476498008C2CD3 /* Assets.xcassets */; };
 		EE5F5C4321476498008C2CD3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5C4121476498008C2CD3 /* LaunchScreen.storyboard */; };
 		EE5F5C4B2147652B008C2CD3 /* MomentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C4A2147652A008C2CD3 /* MomentsViewController.swift */; };
 		EE5F5C4D214765CE008C2CD3 /* MomentsCommonCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C4C214765CE008C2CD3 /* MomentsCommonCollectionView.swift */; };
-		EE5F5C4F214765F1008C2CD3 /* ViewForPermissionUnavailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C4E214765F1008C2CD3 /* ViewForPermissionUnavailable.swift */; };
 		EE5F5C5121476B17008C2CD3 /* MomentsViewController+FetchPHAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C5021476B17008C2CD3 /* MomentsViewController+FetchPHAssets.swift */; };
 		EE5F5C53214771CD008C2CD3 /* StickyHeadersCollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C52214771CD008C2CD3 /* StickyHeadersCollectionViewLayout.swift */; };
 		EE5F5C552147723B008C2CD3 /* GridViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C542147723B008C2CD3 /* GridViewCell.swift */; };
 		EE5F5C5721477744008C2CD3 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C5621477744008C2CD3 /* PopupViewController.swift */; };
 		EE5F5C592147B881008C2CD3 /* PHAsset+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C582147B880008C2CD3 /* PHAsset+Extension.swift */; };
 		EE5F5C7B214CF6D6008C2CD3 /* MomentsViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5C7A214CF6D6008C2CD3 /* MomentsViewHelper.swift */; };
+		EE7419F321BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7419F221BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift */; };
+		EE7419FB21BD0CE10011FB6D /* PHAssetsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE7419FA21BD0CE10011FB6D /* PHAssetsProvider.swift */; };
+		EECAC4DA21BD135B000FEA4F /* MomentsDataSourceElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = EECAC4D921BD135B000FEA4F /* MomentsDataSourceElement.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EE7419F521BD0C910011FB6D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EE5F5C2D21476498008C2CD3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EE5F5C3421476498008C2CD3;
+			remoteInfo = TestsOnPhotosContentOffsetDecisionInCollectionView;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BEF5C53721AF6616007A72F5 /* MomentsClusterDataSourceElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsClusterDataSourceElement.swift; sourceTree = "<group>"; };
 		BEF5C55F21AFC22B007A72F5 /* MomentsClusterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsClusterViewController.swift; sourceTree = "<group>"; };
 		BEF5C56221AFC3A0007A72F5 /* MomentsClusterNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsClusterNavigationController.swift; sourceTree = "<group>"; };
-		BEF5C56421AFD1A9007A72F5 /* AllMomentsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllMomentsProvider.swift; sourceTree = "<group>"; };
 		EE5F5C3521476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestsOnPhotosContentOffsetDecisionInCollectionView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EE5F5C3821476498008C2CD3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EE5F5C3D21476498008C2CD3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -39,17 +49,28 @@
 		EE5F5C4421476498008C2CD3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EE5F5C4A2147652A008C2CD3 /* MomentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentsViewController.swift; sourceTree = "<group>"; };
 		EE5F5C4C214765CE008C2CD3 /* MomentsCommonCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MomentsCommonCollectionView.swift; sourceTree = "<group>"; };
-		EE5F5C4E214765F1008C2CD3 /* ViewForPermissionUnavailable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewForPermissionUnavailable.swift; sourceTree = "<group>"; };
 		EE5F5C5021476B17008C2CD3 /* MomentsViewController+FetchPHAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MomentsViewController+FetchPHAssets.swift"; sourceTree = "<group>"; };
 		EE5F5C52214771CD008C2CD3 /* StickyHeadersCollectionViewLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickyHeadersCollectionViewLayout.swift; sourceTree = "<group>"; };
 		EE5F5C542147723B008C2CD3 /* GridViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridViewCell.swift; sourceTree = "<group>"; };
 		EE5F5C5621477744008C2CD3 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		EE5F5C582147B880008C2CD3 /* PHAsset+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PHAsset+Extension.swift"; sourceTree = "<group>"; };
 		EE5F5C7A214CF6D6008C2CD3 /* MomentsViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsViewHelper.swift; sourceTree = "<group>"; };
+		EE7419F021BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestsOnPhotosContentOffsetDecisionInCollectionViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE7419F221BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift; sourceTree = "<group>"; };
+		EE7419F421BD0C910011FB6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EE7419FA21BD0CE10011FB6D /* PHAssetsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetsProvider.swift; sourceTree = "<group>"; };
+		EECAC4D921BD135B000FEA4F /* MomentsDataSourceElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentsDataSourceElement.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		EE5F5C3221476498008C2CD3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EE7419ED21BD0C910011FB6D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -64,7 +85,7 @@
 			children = (
 				BEF5C56221AFC3A0007A72F5 /* MomentsClusterNavigationController.swift */,
 				BEF5C55F21AFC22B007A72F5 /* MomentsClusterViewController.swift */,
-				BEF5C56421AFD1A9007A72F5 /* AllMomentsProvider.swift */,
+				EE7419FA21BD0CE10011FB6D /* PHAssetsProvider.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -73,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				EE5F5C3721476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView */,
+				EE7419F121BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests */,
 				EE5F5C3621476498008C2CD3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -81,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				EE5F5C3521476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView.app */,
+				EE7419F021BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,8 +111,8 @@
 		EE5F5C3721476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				EECAC4D821BD12FA000FEA4F /* Structures */,
 				BEF5C56121AFC37D007A72F5 /* ViewControllers */,
-				EE5F5C4E214765F1008C2CD3 /* ViewForPermissionUnavailable.swift */,
 				EE5F5C3821476498008C2CD3 /* AppDelegate.swift */,
 				EE5F5C542147723B008C2CD3 /* GridViewCell.swift */,
 				EE5F5C5621477744008C2CD3 /* PopupViewController.swift */,
@@ -103,9 +126,26 @@
 				EE5F5C3F21476498008C2CD3 /* Assets.xcassets */,
 				EE5F5C4121476498008C2CD3 /* LaunchScreen.storyboard */,
 				EE5F5C4421476498008C2CD3 /* Info.plist */,
-				BEF5C53721AF6616007A72F5 /* MomentsClusterDataSourceElement.swift */,
 			);
 			path = TestsOnPhotosContentOffsetDecisionInCollectionView;
+			sourceTree = "<group>";
+		};
+		EE7419F121BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				EE7419F221BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift */,
+				EE7419F421BD0C910011FB6D /* Info.plist */,
+			);
+			path = TestsOnPhotosContentOffsetDecisionInCollectionViewTests;
+			sourceTree = "<group>";
+		};
+		EECAC4D821BD12FA000FEA4F /* Structures */ = {
+			isa = PBXGroup;
+			children = (
+				BEF5C53721AF6616007A72F5 /* MomentsClusterDataSourceElement.swift */,
+				EECAC4D921BD135B000FEA4F /* MomentsDataSourceElement.swift */,
+			);
+			path = Structures;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +168,24 @@
 			productReference = EE5F5C3521476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView.app */;
 			productType = "com.apple.product-type.application";
 		};
+		EE7419EF21BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EE7419F721BD0C910011FB6D /* Build configuration list for PBXNativeTarget "TestsOnPhotosContentOffsetDecisionInCollectionViewTests" */;
+			buildPhases = (
+				EE7419EC21BD0C910011FB6D /* Sources */,
+				EE7419ED21BD0C910011FB6D /* Frameworks */,
+				EE7419EE21BD0C910011FB6D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EE7419F621BD0C910011FB6D /* PBXTargetDependency */,
+			);
+			name = TestsOnPhotosContentOffsetDecisionInCollectionViewTests;
+			productName = TestsOnPhotosContentOffsetDecisionInCollectionViewTests;
+			productReference = EE7419F021BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -141,6 +199,11 @@
 					EE5F5C3421476498008C2CD3 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+					};
+					EE7419EF21BD0C910011FB6D = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EE5F5C3421476498008C2CD3;
 					};
 				};
 			};
@@ -158,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				EE5F5C3421476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView */,
+				EE7419EF21BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -173,6 +237,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE7419EE21BD0C910011FB6D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -181,10 +252,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EE5F5C4D214765CE008C2CD3 /* MomentsCommonCollectionView.swift in Sources */,
+				EECAC4DA21BD135B000FEA4F /* MomentsDataSourceElement.swift in Sources */,
 				BEF5C56021AFC22B007A72F5 /* MomentsClusterViewController.swift in Sources */,
-				EE5F5C4F214765F1008C2CD3 /* ViewForPermissionUnavailable.swift in Sources */,
+				EE7419FB21BD0CE10011FB6D /* PHAssetsProvider.swift in Sources */,
 				EE5F5C7B214CF6D6008C2CD3 /* MomentsViewHelper.swift in Sources */,
-				BEF5C56521AFD1A9007A72F5 /* AllMomentsProvider.swift in Sources */,
 				EE5F5C3921476498008C2CD3 /* AppDelegate.swift in Sources */,
 				EE5F5C592147B881008C2CD3 /* PHAsset+Extension.swift in Sources */,
 				EE5F5C53214771CD008C2CD3 /* StickyHeadersCollectionViewLayout.swift in Sources */,
@@ -197,7 +268,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EE7419EC21BD0C910011FB6D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE7419F321BD0C910011FB6D /* TestsOnPhotosContentOffsetDecisionInCollectionViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EE7419F621BD0C910011FB6D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EE5F5C3421476498008C2CD3 /* TestsOnPhotosContentOffsetDecisionInCollectionView */;
+			targetProxy = EE7419F521BD0C910011FB6D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EE5F5C3C21476498008C2CD3 /* Main.storyboard */ = {
@@ -356,6 +443,38 @@
 			};
 			name = Release;
 		};
+		EE7419F821BD0C910011FB6D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8LSJUN2G6D;
+				INFOPLIST_FILE = TestsOnPhotosContentOffsetDecisionInCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = softv.TestsOnPhotosContentOffsetDecisionInCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestsOnPhotosContentOffsetDecisionInCollectionView.app/TestsOnPhotosContentOffsetDecisionInCollectionView";
+			};
+			name = Debug;
+		};
+		EE7419F921BD0C910011FB6D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 8LSJUN2G6D;
+				INFOPLIST_FILE = TestsOnPhotosContentOffsetDecisionInCollectionViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = softv.TestsOnPhotosContentOffsetDecisionInCollectionViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TestsOnPhotosContentOffsetDecisionInCollectionView.app/TestsOnPhotosContentOffsetDecisionInCollectionView";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -373,6 +492,15 @@
 			buildConfigurations = (
 				EE5F5C4821476498008C2CD3 /* Debug */,
 				EE5F5C4921476498008C2CD3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EE7419F721BD0C910011FB6D /* Build configuration list for PBXNativeTarget "TestsOnPhotosContentOffsetDecisionInCollectionViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EE7419F821BD0C910011FB6D /* Debug */,
+				EE7419F921BD0C910011FB6D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

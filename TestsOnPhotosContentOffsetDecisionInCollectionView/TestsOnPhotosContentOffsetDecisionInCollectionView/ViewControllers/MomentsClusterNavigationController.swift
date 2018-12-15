@@ -11,10 +11,16 @@ import Photos
 
 class MomentsClusterNavigationController: UINavigationController {
 
-    var allMomentsProvider: AllMomentsProvider?
+    var dataSourceProvider: PHAssetsProvider!
     
-    func initAllMomentsProvider() {
-        self.allMomentsProvider = AllMomentsProvider()
+    func initDataSourceProvider() {
+        
+        if let p = try? PHAssetsProvider() {
+            self.dataSourceProvider = p
+        } else {
+            fatalError()
+        }
+        
     }
     
     
