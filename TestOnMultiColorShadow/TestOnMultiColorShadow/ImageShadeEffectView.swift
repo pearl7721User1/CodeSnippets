@@ -42,7 +42,6 @@ class ImageShadeEffectView: UIView {
         imgLayer.frame = self.bounds.insetBy(dx: 0.5, dy: 0.5)
         
         visualEffectView.frame = self.bounds.insetBy(dx: -100, dy: -100)
-
     }
     
     private func commonInit() {
