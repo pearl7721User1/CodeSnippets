@@ -20,6 +20,8 @@ class ViewController: UIViewController {
         lineLayer.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
         self.view.layer.addSublayer(lineLayer)
         lineLayer.setNeedsDisplay()
+        
+        
     }
     
     @IBAction func btnTapped(_ sender: UIButton) {
@@ -32,6 +34,8 @@ class ViewController: UIViewController {
         lineLayer.goStraight()
     }
     
+    
 
+    
 }
 

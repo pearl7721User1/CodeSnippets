@@ -13,6 +13,9 @@ class AlertOperation: Operation {
     
     private let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .alert)
     private let presentationContext: UIViewController? = nil
+    var num = 0
+    var cancelAllOperations: (() -> ())?
+    
     
     // MARK: CunCurrency
     private var _executing = false {
@@ -78,10 +81,17 @@ class AlertOperation: Operation {
         let action = UIAlertAction(title: title, style: style) { [weak self] _ in
             if let strongSelf = self {
                 handler(strongSelf)
+                
+                if let cancelAllOperations = strongSelf.cancelAllOperations {
+                    cancelAllOperations()
+                }
+                
             }
             
             self?.executing(false)
             self?.finish(true)
+            
+            print("\(self?.num) finished")
         }
         
         alertController.addAction(action)
@@ -89,11 +99,13 @@ class AlertOperation: Operation {
     
     override func start() {
         
+        print("\(self.num) started")
         executing(true)
         
         DispatchQueue.main.async {
             if self.alertController.actions.isEmpty {
-                self.addAction(title: "OK")
+                
+                self.addAction(title: "OK\(self.num)")
             }
             
             if let appDelegate = UIApplication.shared.delegate,
