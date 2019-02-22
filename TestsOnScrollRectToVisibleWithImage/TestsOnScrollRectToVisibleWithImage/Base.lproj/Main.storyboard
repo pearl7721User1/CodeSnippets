@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TyK-TE-reT">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="TestsOnScrollRectToVisibleWithImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFh-aj-s1Z">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <items>
+                                    <barButtonItem title="present" id="vKX-m1-2OX">
+                                        <connections>
+                                            <action selector="presentButtonTapped:" destination="BYZ-38-t0r" id="nNG-K0-5gL"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="ESX-92-VLE">
+                                <rect key="frame" x="50" y="50" width="275" height="357"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="ESX-92-VLE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="50" id="4rC-Uf-faN"/>
+                            <constraint firstItem="JFh-aj-s1Z" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7f0-0g-f4q"/>
+                            <constraint firstItem="ESX-92-VLE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="FGh-Ch-aXP"/>
+                            <constraint firstItem="JFh-aj-s1Z" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="O6q-zt-lD4"/>
+                            <constraint firstItem="JFh-aj-s1Z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="RUy-3g-qyu"/>
+                            <constraint firstAttribute="trailing" secondItem="ESX-92-VLE" secondAttribute="trailing" constant="50" id="Vrn-P7-DP8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+        </scene>
+        <!--My View Controller-->
+        <scene sceneID="ffX-dU-ANp">
+            <objects>
+                <viewController id="TyK-TE-reT" customClass="MyViewController" customModule="TestsOnScrollRectToVisibleWithImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bNB-BC-HoX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZaH-iH-alD"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fc3-SD-joN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="796"/>
+        </scene>
+        <!--Image Embed Scroll View Presentation View Controller-->
+        <scene sceneID="jFn-VL-eVU">
+            <objects>
+                <viewController storyboardIdentifier="ImageEmbedScrollViewPresentationViewController" id="Tu8-mO-cvx" customClass="ImageEmbedScrollViewPresentationViewController" customModule="TestsOnScrollRectToVisibleWithImage" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LaQ-jn-1EL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5sB-aj-fXI">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <items>
+                                    <navigationItem title="Title" id="3SC-3o-3kP">
+                                        <barButtonItem key="leftBarButtonItem" title="scroll" id="1H6-xA-7x5">
+                                            <connections>
+                                                <action selector="scrollButtonTapped:" destination="Tu8-mO-cvx" id="tPE-Jh-cQF"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="close" id="GAa-9b-IB8">
+                                            <connections>
+                                                <action selector="closeButtonTapped:" destination="Tu8-mO-cvx" id="1cy-50-eim"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nEn-6Q-2M5">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="b0" id="eP8-kG-cB0">
+                                        <connections>
+                                            <action selector="b0ButtonTapped:" destination="Tu8-mO-cvx" id="k9e-jA-PaV"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="b1" id="WU5-0b-8o3">
+                                        <connections>
+                                            <action selector="b1ButtonTapped:" destination="Tu8-mO-cvx" id="nOW-RI-tCG"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="b2" id="BI6-Zk-FEm">
+                                        <connections>
+                                            <action selector="b2ButtonTapped:" destination="Tu8-mO-cvx" id="zM4-Vf-Tma"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem title="b3" id="IcO-zu-Tnu">
+                                        <connections>
+                                            <action selector="b3ButtonTapped:" destination="Tu8-mO-cvx" id="BcA-zE-rx9"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qnb-gd-ifm" customClass="SplitScrollView" customModule="TestsOnScrollRectToVisibleWithImage" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="150" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="image" value="1.jpg"/>
+                                </userDefinedRuntimeAttributes>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="5sB-aj-fXI" firstAttribute="trailing" secondItem="eQ6-6P-VaG" secondAttribute="trailing" id="F6x-8u-R5m"/>
+                            <constraint firstItem="5sB-aj-fXI" firstAttribute="top" secondItem="eQ6-6P-VaG" secondAttribute="top" id="oGI-xu-erM"/>
+                            <constraint firstItem="5sB-aj-fXI" firstAttribute="leading" secondItem="eQ6-6P-VaG" secondAttribute="leading" id="zFK-cr-gKL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="eQ6-6P-VaG"/>
+                    </view>
+                    <connections>
+                        <outlet property="splitScrollView" destination="qnb-gd-ifm" id="9s6-EI-Ydh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="syx-He-TPm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1481" y="20"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="1.jpg" width="540" height="357"/>
+    </resources>
+</document>
