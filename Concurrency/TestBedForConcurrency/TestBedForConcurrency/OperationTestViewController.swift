@@ -15,11 +15,16 @@ class OperationTestViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        
-        
         let operation1 = AlertOperation()
         let operation2 = AlertOperation()
         let operation3 = AlertOperation()
+        
+        operation1.num = 10
+        operation2.num = 20
+        operation3.num = 30
+        
+        
+        
         
         //        operation3.addDependency(operation2)
         //        operation2.addDependency(operation1)
@@ -27,6 +32,13 @@ class OperationTestViewController: UIViewController {
         
         let operationQueue = OperationQueue()
         operationQueue.maxConcurrentOperationCount = 1
+        
+        
+        operation1.cancelAllOperations = {
+            operationQueue.cancelAllOperations()
+        }
+        
+        
         operationQueue.addOperation(operation1)
         operationQueue.addOperation(operation2)
         operationQueue.addOperation(operation3)
